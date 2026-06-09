@@ -38,16 +38,18 @@
             button3 = new Button();
             button2 = new Button();
             button1 = new Button();
-            pictureBox3 = new PictureBox();
+            kelolaBibit2 = new KelolaBibit();
+            manajemenStok1 = new ManajemenStok();
+            transaksiMasuk1 = new TransaksiMasuk();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.DarkGreen;
+            panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
             panel1.Controls.Add(pictureBox2);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
@@ -56,7 +58,6 @@
             panel1.Controls.Add(button3);
             panel1.Controls.Add(button2);
             panel1.Controls.Add(button1);
-            panel1.Controls.Add(pictureBox3);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
@@ -68,7 +69,7 @@
             // 
             pictureBox2.BackColor = Color.Transparent;
             pictureBox2.BackgroundImage = (Image)resources.GetObject("pictureBox2.BackgroundImage");
-            pictureBox2.Location = new Point(-7, 12);
+            pictureBox2.Location = new Point(-5, 33);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(225, 94);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
@@ -112,7 +113,7 @@
             // SidePanel
             // 
             SidePanel.BackColor = Color.White;
-            SidePanel.Location = new Point(0, 282);
+            SidePanel.Location = new Point(0, 154);
             SidePanel.Name = "SidePanel";
             SidePanel.Size = new Size(10, 58);
             SidePanel.TabIndex = 2;
@@ -132,6 +133,7 @@
             button3.Text = "   Transaksi Masuk";
             button3.TextImageRelation = TextImageRelation.ImageBeforeText;
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button2
             // 
@@ -148,6 +150,7 @@
             button2.Text = "   Manajemen Stok";
             button2.TextImageRelation = TextImageRelation.ImageBeforeText;
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button1
             // 
@@ -164,17 +167,34 @@
             button1.Text = "   Kelola Bibit";
             button1.TextImageRelation = TextImageRelation.ImageBeforeText;
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
-            // pictureBox3
+            // kelolaBibit2
             // 
-            pictureBox3.BackColor = Color.Transparent;
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(0, 97);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(254, 72);
-            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox3.TabIndex = 4;
-            pictureBox3.TabStop = false;
+            kelolaBibit2.BackColor = Color.White;
+            kelolaBibit2.Location = new Point(255, 0);
+            kelolaBibit2.Margin = new Padding(3, 4, 3, 4);
+            kelolaBibit2.Name = "kelolaBibit2";
+            kelolaBibit2.Size = new Size(1286, 1066);
+            kelolaBibit2.TabIndex = 1;
+            // 
+            // manajemenStok1
+            // 
+            manajemenStok1.BackColor = Color.FromArgb(245, 245, 245);
+            manajemenStok1.Location = new Point(255, 0);
+            manajemenStok1.Margin = new Padding(3, 4, 3, 4);
+            manajemenStok1.Name = "manajemenStok1";
+            manajemenStok1.Size = new Size(1258, 1000);
+            manajemenStok1.TabIndex = 2;
+            // 
+            // transaksiMasuk1
+            // 
+            transaksiMasuk1.BackColor = Color.White;
+            transaksiMasuk1.Location = new Point(255, 0);
+            transaksiMasuk1.Margin = new Padding(3, 4, 3, 4);
+            transaksiMasuk1.Name = "transaksiMasuk1";
+            transaksiMasuk1.Size = new Size(1229, 900);
+            transaksiMasuk1.TabIndex = 3;
             // 
             // Form1
             // 
@@ -182,6 +202,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1415, 742);
+            Controls.Add(transaksiMasuk1);
+            Controls.Add(manajemenStok1);
+            Controls.Add(kelolaBibit2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Form1";
@@ -192,7 +215,6 @@
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
         }
 
@@ -207,7 +229,9 @@
         private Label label2;
         private Button button2;
         private PictureBox pictureBox2;
-        private PictureBox pictureBox3;
         private KelolaBibit kelolaBibit1;
+        private KelolaBibit kelolaBibit2;
+        private ManajemenStok manajemenStok1;
+        private TransaksiMasuk transaksiMasuk1;
     }
 }

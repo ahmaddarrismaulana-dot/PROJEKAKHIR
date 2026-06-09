@@ -1,7 +1,4 @@
-﻿using System.Drawing.Printing;
-using System.Xml.Linq;
-
-namespace bibitku_app
+﻿namespace bibitku_app
 {
     partial class KelolaBibit
     {
@@ -18,7 +15,7 @@ namespace bibitku_app
 
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             lblDataBibit = new Label();
             lblIdBibit = new Label();
             txtIdBibit = new TextBox();
@@ -27,7 +24,6 @@ namespace bibitku_app
             lblKategori = new Label();
             cmbKategori = new ComboBox();
             lblUmurBibit = new Label();
-            cmbUmurBibit = new ComboBox();
             lblHarga = new Label();
             lblStok = new Label();
             lblDeskripsi = new Label();
@@ -51,6 +47,7 @@ namespace bibitku_app
             label1 = new Label();
             numHarga = new NumericUpDown();
             numStok = new NumericUpDown();
+            textUmurBibit = new TextBox();
             ((System.ComponentModel.ISupportInitialize)picBibit).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvBibit).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numHarga).BeginInit();
@@ -84,7 +81,6 @@ namespace bibitku_app
             txtIdBibit.Location = new Point(166, 69);
             txtIdBibit.Margin = new Padding(3, 4, 3, 4);
             txtIdBibit.Name = "txtIdBibit";
-            txtIdBibit.ReadOnly = true;
             txtIdBibit.Size = new Size(365, 27);
             txtIdBibit.TabIndex = 2;
             // 
@@ -134,15 +130,6 @@ namespace bibitku_app
             lblUmurBibit.Size = new Size(80, 20);
             lblUmurBibit.TabIndex = 7;
             lblUmurBibit.Text = "Umur Bibit";
-            // 
-            // cmbUmurBibit
-            // 
-            cmbUmurBibit.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbUmurBibit.Location = new Point(166, 209);
-            cmbUmurBibit.Margin = new Padding(3, 4, 3, 4);
-            cmbUmurBibit.Name = "cmbUmurBibit";
-            cmbUmurBibit.Size = new Size(171, 28);
-            cmbUmurBibit.TabIndex = 8;
             // 
             // lblHarga
             // 
@@ -289,14 +276,14 @@ namespace bibitku_app
             dgvBibit.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvBibit.BackgroundColor = Color.White;
             dgvBibit.BorderStyle = BorderStyle.None;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(245, 245, 245);
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgvBibit.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(245, 245, 245);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvBibit.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvBibit.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvBibit.Columns.AddRange(new DataGridViewColumn[] { colIdBibit, colNamaBibit, colKategori, colUmur, colHarga, colStok, colAksi });
             dgvBibit.EnableHeadersVisualStyles = false;
@@ -380,6 +367,7 @@ namespace bibitku_app
             // numHarga
             // 
             numHarga.Location = new Point(166, 256);
+            numHarga.Maximum = new decimal(new int[] { 9999999, 0, 0, 0 });
             numHarga.Name = "numHarga";
             numHarga.Size = new Size(171, 27);
             numHarga.TabIndex = 26;
@@ -387,9 +375,18 @@ namespace bibitku_app
             // numStok
             // 
             numStok.Location = new Point(166, 303);
+            numStok.Maximum = new decimal(new int[] { 9999999, 0, 0, 0 });
             numStok.Name = "numStok";
             numStok.Size = new Size(171, 27);
             numStok.TabIndex = 27;
+            // 
+            // textUmurBibit
+            // 
+            textUmurBibit.Location = new Point(166, 210);
+            textUmurBibit.Margin = new Padding(3, 4, 3, 4);
+            textUmurBibit.Name = "textUmurBibit";
+            textUmurBibit.Size = new Size(171, 27);
+            textUmurBibit.TabIndex = 4;
             // 
             // KelolaBibit
             // 
@@ -403,11 +400,11 @@ namespace bibitku_app
             Controls.Add(lblIdBibit);
             Controls.Add(txtIdBibit);
             Controls.Add(lblNamaBibit);
+            Controls.Add(textUmurBibit);
             Controls.Add(txtNamaBibit);
             Controls.Add(lblKategori);
             Controls.Add(cmbKategori);
             Controls.Add(lblUmurBibit);
-            Controls.Add(cmbUmurBibit);
             Controls.Add(lblHarga);
             Controls.Add(lblStok);
             Controls.Add(lblDeskripsi);
@@ -442,7 +439,6 @@ namespace bibitku_app
         private System.Windows.Forms.Label lblKategori;
         private System.Windows.Forms.ComboBox cmbKategori;
         private System.Windows.Forms.Label lblUmurBibit;
-        private System.Windows.Forms.ComboBox cmbUmurBibit;
         private System.Windows.Forms.Label lblHarga;
         private System.Windows.Forms.Label lblStok;
         private System.Windows.Forms.Label lblDeskripsi;
@@ -466,5 +462,6 @@ namespace bibitku_app
         private Label label1;
         private NumericUpDown numHarga;
         private NumericUpDown numStok;
+        private TextBox textUmurBibit;
     }
 }
