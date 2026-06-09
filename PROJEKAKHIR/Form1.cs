@@ -1,98 +1,75 @@
-using System;
-using System.Drawing;
-using System.Windows.Forms;
-using BibitKu.Controllers;
-using BibitKu.Models;
-
-namespace BibitKu.Views
+﻿namespace bibitku_app
 {
-    public partial class FormLogin : Form
+    public partial class Form1 : Form
     {
-        private readonly LoginController _controller;
-
-        public FormLogin()
+        public Form1()
         {
             InitializeComponent();
-            _controller = new LoginController();
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
-            string email = txtEmail.Text.Trim();
-            string password = txtPassword.Text;
-            string role = cmbRole.SelectedItem?.ToString();
 
-            string pesanError = _controller.ValidasiInput(email, password);
-            if (pesanError != null)
-            {
-                TampilPesan(pesanError, Color.Red);
-                return;
-            }
-
-            btnLogin.Enabled = false;
-            btnLogin.Text = "Memproses...";
-            this.Cursor = Cursors.WaitCursor;
-
-            try
-            {
-                User user = _controller.Login(email, password, role);
-
-                if (user == null)
-                {
-                    TampilPesan("Email, password, atau role tidak sesuai.", Color.Red);
-                    return;
-                }
-
-                TampilPesan("Login berhasil!", Color.Green);
-                this.Hide();
-
-                if (user is Penjual penjual)
-                {
-                    MessageBox.Show(
-                        $"Selamat datang, {penjual.Nama}!\nToko: {penjual.NamaToko}",
-                        "Login Berhasil",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information
-                    );
-                    this.Show();
-                }
-                else if (user is Pembeli pembeli)
-                {
-                    MessageBox.Show(
-                        $"Selamat datang, {pembeli.Nama}!",
-                        "Login Berhasil",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information
-                    );
-                    this.Show();
-                }
-            }
-            catch (Exception ex)
-            {
-                TampilPesan("Koneksi error: " + ex.Message, Color.Red);
-            }
-            finally
-            {
-                btnLogin.Enabled = true;
-                btnLogin.Text = "Masuk";
-                this.Cursor = Cursors.Default;
-            }
         }
 
-        private void btnBatal_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+
         }
 
-        private void chkTampilPassword_CheckedChanged(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            txtPassword.PasswordChar = chkTampilPassword.Checked ? '\0' : '●';
+
         }
 
-        private void TampilPesan(string pesan, Color warna)
+        private void panel4_Paint(object sender, PaintEventArgs e)
         {
-            lblPesan.Text = pesan;
-            lblPesan.ForeColor = warna;
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void kelolaBibit1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void manajemenStok1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void manajemenStok1_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void kelolaBibit1_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
