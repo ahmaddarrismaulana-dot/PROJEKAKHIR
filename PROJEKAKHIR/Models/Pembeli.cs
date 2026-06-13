@@ -1,10 +1,6 @@
 ﻿namespace BibitKu.Models
 {
-    // ================================================================
-    //  Model: Pembeli
-    //  Menerapkan konsep: Inheritance (extends User)
-    //                     Overriding (GetInfo, GetDashboardTitle)
-    // ================================================================
+    
     public class Pembeli : User
     {
         public Pembeli() { }

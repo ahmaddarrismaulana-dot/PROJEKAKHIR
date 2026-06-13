@@ -24,5 +24,10 @@ namespace bibitku_app
         {
 
         }
+
+        private void panelTotalStok_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

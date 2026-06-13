@@ -43,7 +43,7 @@
             colUmur = new DataGridViewTextBoxColumn();
             colHarga = new DataGridViewTextBoxColumn();
             colStok = new DataGridViewTextBoxColumn();
-            colAksi = new DataGridViewTextBoxColumn();
+            colAksi = new DataGridViewButtonColumn();
             label1 = new Label();
             numHarga = new NumericUpDown();
             numStok = new NumericUpDown();
@@ -78,11 +78,13 @@
             // txtIdBibit
             // 
             txtIdBibit.BackColor = Color.FromArgb(240, 240, 240);
+            txtIdBibit.Enabled = false;
             txtIdBibit.Location = new Point(166, 69);
             txtIdBibit.Margin = new Padding(3, 4, 3, 4);
             txtIdBibit.Name = "txtIdBibit";
             txtIdBibit.Size = new Size(365, 27);
             txtIdBibit.TabIndex = 2;
+            txtIdBibit.TextChanged += txtIdBibit_TextChanged;
             // 
             // lblNamaBibit
             // 
@@ -182,6 +184,7 @@
             picBibit.SizeMode = PictureBoxSizeMode.Zoom;
             picBibit.TabIndex = 15;
             picBibit.TabStop = false;
+            picBibit.Click += picBibit_Click;
             // 
             // btnPilihGambar
             // 
@@ -197,6 +200,7 @@
             btnPilihGambar.TabIndex = 16;
             btnPilihGambar.Text = "Pilih Gambar";
             btnPilihGambar.UseVisualStyleBackColor = false;
+            btnPilihGambar.Click += btnPilihGambar_Click;
             // 
             // btnSimpan
             // 
@@ -212,6 +216,7 @@
             btnSimpan.TabIndex = 17;
             btnSimpan.Text = "Simpan";
             btnSimpan.UseVisualStyleBackColor = false;
+            btnSimpan.Click += btnSimpan_Click;
             // 
             // btnReset
             // 
@@ -227,6 +232,7 @@
             btnReset.TabIndex = 20;
             btnReset.Text = "Reset";
             btnReset.UseVisualStyleBackColor = false;
+            btnReset.Click += btnReset_Click;
             // 
             // lblSeparator
             // 
@@ -268,6 +274,7 @@
             btnCari.TabIndex = 24;
             btnCari.Text = "🔍";
             btnCari.UseVisualStyleBackColor = false;
+            btnCari.Click += btnCari_Click;
             // 
             // dgvBibit
             // 
@@ -316,6 +323,7 @@
             // 
             // colKategori
             // 
+            colKategori.FillWeight = 120F;
             colKategori.HeaderText = "Kategori";
             colKategori.MinimumWidth = 6;
             colKategori.Name = "colKategori";
@@ -331,7 +339,7 @@
             // 
             // colHarga
             // 
-            colHarga.FillWeight = 80F;
+            colHarga.FillWeight = 100F;
             colHarga.HeaderText = "Harga";
             colHarga.MinimumWidth = 6;
             colHarga.Name = "colHarga";
@@ -347,11 +355,13 @@
             // 
             // colAksi
             // 
-            colAksi.FillWeight = 60F;
+            colAksi.FillWeight = 80F;
             colAksi.HeaderText = "Aksi";
             colAksi.MinimumWidth = 6;
             colAksi.Name = "colAksi";
             colAksi.ReadOnly = true;
+            colAksi.Text = "Hapus";
+            colAksi.UseColumnTextForButtonValue = true;
             // 
             // label1
             // 
@@ -387,6 +397,7 @@
             textUmurBibit.Name = "textUmurBibit";
             textUmurBibit.Size = new Size(171, 27);
             textUmurBibit.TabIndex = 4;
+            textUmurBibit.TextChanged += textUmurBibit_TextChanged;
             // 
             // KelolaBibit
             // 
@@ -421,6 +432,7 @@
             Margin = new Padding(3, 4, 3, 4);
             Name = "KelolaBibit";
             Size = new Size(1029, 853);
+            Load += KelolaBibit_Load;
             ((System.ComponentModel.ISupportInitialize)picBibit).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvBibit).EndInit();
             ((System.ComponentModel.ISupportInitialize)numHarga).EndInit();
@@ -452,13 +464,13 @@
         private System.Windows.Forms.TextBox txtCari;
         private System.Windows.Forms.Button btnCari;
         private System.Windows.Forms.DataGridView dgvBibit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colIdBibit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNamaBibit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colKategori;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colUmur;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colHarga;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colStok;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colAksi;
+        private DataGridViewTextBoxColumn colIdBibit;
+        private DataGridViewTextBoxColumn colNamaBibit;
+        private DataGridViewTextBoxColumn colKategori;
+        private DataGridViewTextBoxColumn colUmur;
+        private DataGridViewTextBoxColumn colHarga;
+        private DataGridViewTextBoxColumn colStok;
+        private DataGridViewButtonColumn colAksi;
         private Label label1;
         private NumericUpDown numHarga;
         private NumericUpDown numStok;

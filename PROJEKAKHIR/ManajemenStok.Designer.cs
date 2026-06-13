@@ -15,7 +15,7 @@
 
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             lblJudul = new Label();
             lblSubJudul = new Label();
             panelTotalStok = new Panel();
@@ -93,6 +93,7 @@
             panelTotalStok.Name = "panelTotalStok";
             panelTotalStok.Size = new Size(297, 159);
             panelTotalStok.TabIndex = 2;
+            panelTotalStok.Paint += panelTotalStok_Paint;
             // 
             // lblIconTotal
             // 
@@ -410,14 +411,14 @@
             dgvStok.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvStok.BackgroundColor = Color.White;
             dgvStok.BorderStyle = BorderStyle.None;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(245, 250, 245);
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dgvStok.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(245, 250, 245);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvStok.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvStok.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvStok.Columns.AddRange(new DataGridViewColumn[] { colId, colNama, colJenis, colStok, colStatus });
             dgvStok.EnableHeadersVisualStyles = false;

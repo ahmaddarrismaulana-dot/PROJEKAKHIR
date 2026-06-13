@@ -3,8 +3,10 @@ using System.Drawing;
 using System.Windows.Forms;
 using BibitKu.Controllers;
 using BibitKu.Models;
+using bibitku_app;
+using PROJEKAKHIR;
 
-namespace BibitKu.Views
+namespace BibitKu.Views   
 {
     public partial class FormLogin : Form
     {
@@ -45,6 +47,7 @@ namespace BibitKu.Views
 
                 TampilPesan("Login berhasil!", Color.Green);
                 this.Hide();
+                
 
                 if (user is Penjual penjual)
                 {
@@ -54,7 +57,8 @@ namespace BibitKu.Views
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information
                     );
-                    this.Show();
+                    Form1 frpenjual = new Form1();
+                    frpenjual.Show();
                 }
                 else if (user is Pembeli pembeli)
                 {
@@ -64,7 +68,8 @@ namespace BibitKu.Views
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information
                     );
-                    this.Show();
+                    FORMPEMBELI fr = new FORMPEMBELI();
+                    fr.Show();
                 }
             }
             catch (Exception ex)
