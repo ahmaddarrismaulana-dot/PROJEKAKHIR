@@ -16,6 +16,7 @@
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             lblJudul = new Label();
             lblSubJudul = new Label();
             panelTotalStok = new Panel();
@@ -47,7 +48,7 @@
             dgvStok = new DataGridView();
             colId = new DataGridViewTextBoxColumn();
             colNama = new DataGridViewTextBoxColumn();
-            colKategori = new DataGridViewTextBoxColumn();  // Ganti dari colJenis
+            colKategori = new DataGridViewTextBoxColumn();
             colStok = new DataGridViewTextBoxColumn();
             colStatus = new DataGridViewTextBoxColumn();
             panelTotalStok.SuspendLayout();
@@ -162,6 +163,7 @@
             lblMenipisTitle.Size = new Size(94, 20);
             lblMenipisTitle.TabIndex = 1;
             lblMenipisTitle.Text = "Stok Menipis";
+            lblMenipisTitle.Click += lblMenipisTitle_Click;
             // 
             // lblMenipisVal
             // 
@@ -435,6 +437,7 @@
             dgvStok.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvStok.Size = new Size(546, 393);
             dgvStok.TabIndex = 1;
+            dgvStok.CellContentClick += dgvStok_CellContentClick;
             dgvStok.CellDoubleClick += dgvStok_CellDoubleClick;
             // 
             // colId
@@ -463,16 +466,16 @@
             // 
             // colStok
             // 
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleRight;
+            colStok.DefaultCellStyle = dataGridViewCellStyle2;
             colStok.FillWeight = 80F;
             colStok.HeaderText = "Stok";
             colStok.MinimumWidth = 6;
             colStok.Name = "colStok";
             colStok.ReadOnly = true;
-            colStok.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             // 
             // colStatus
             // 
-            colStatus.FillWeight = 100F;
             colStatus.HeaderText = "Status";
             colStatus.MinimumWidth = 6;
             colStatus.Name = "colStatus";

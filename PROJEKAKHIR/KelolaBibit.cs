@@ -233,7 +233,33 @@ namespace bibitku_app
 
         private void dgvBibit_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex >= 0 &&
+                dgvBibit.Columns[e.ColumnIndex].Name == "colAksi")
+            {
+                int idBibit = Convert.ToInt32(
+                    dgvBibit.Rows[e.RowIndex].Cells["colIdBibit"].Value);
 
+                DialogResult hasil = MessageBox.Show(
+                    "Yakin ingin menghapus data ini?",
+                    "Konfirmasi",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (hasil == DialogResult.Yes)
+                {
+                    bool berhasil = controller.HapusBibit(idBibit);
+
+                    if (berhasil)
+                    {
+                        MessageBox.Show("Data berhasil dihapus");
+                        LoadDataBibit();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Data gagal dihapus");
+                    }
+                }
+            }
         }
     }
 }

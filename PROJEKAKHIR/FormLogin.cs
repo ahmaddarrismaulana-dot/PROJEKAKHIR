@@ -22,7 +22,6 @@ namespace BibitKu.Views
         {
             string email = txtEmail.Text.Trim();
             string password = txtPassword.Text;
-            string role = cmbRole.SelectedItem?.ToString();
 
             string pesanError = _controller.ValidasiInput(email, password);
             if (pesanError != null)
@@ -37,7 +36,7 @@ namespace BibitKu.Views
 
             try
             {
-                User user = _controller.Login(email, password, role);
+                User user = _controller.Login(email, password);
 
                 if (user == null)
                 {
@@ -47,7 +46,7 @@ namespace BibitKu.Views
 
                 TampilPesan("Login berhasil!", Color.Green);
                 this.Hide();
-                
+
 
                 if (user is Penjual penjual)
                 {
@@ -98,6 +97,17 @@ namespace BibitKu.Views
         {
             lblPesan.Text = pesan;
             lblPesan.ForeColor = warna;
+        }
+
+        private void linkLabel1_LinkClicked(object sender,LinkLabelLinkClickedEventArgs e)
+        {
+            Formauth auth = new Formauth();
+
+            this.Hide();
+
+            auth.ShowDialog();
+
+            this.Show();
         }
     }
 }
