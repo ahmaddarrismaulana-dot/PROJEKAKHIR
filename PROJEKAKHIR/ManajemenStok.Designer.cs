@@ -47,7 +47,7 @@
             dgvStok = new DataGridView();
             colId = new DataGridViewTextBoxColumn();
             colNama = new DataGridViewTextBoxColumn();
-            colJenis = new DataGridViewTextBoxColumn();
+            colKategori = new DataGridViewTextBoxColumn();  // Ganti dari colJenis
             colStok = new DataGridViewTextBoxColumn();
             colStatus = new DataGridViewTextBoxColumn();
             panelTotalStok.SuspendLayout();
@@ -93,7 +93,6 @@
             panelTotalStok.Name = "panelTotalStok";
             panelTotalStok.Size = new Size(297, 159);
             panelTotalStok.TabIndex = 2;
-            panelTotalStok.Paint += panelTotalStok_Paint;
             // 
             // lblIconTotal
             // 
@@ -277,12 +276,12 @@
             // cmbPilihBibit
             // 
             cmbPilihBibit.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbPilihBibit.Items.AddRange(new object[] { "-- Pilih Bibit --" });
             cmbPilihBibit.Location = new Point(17, 70);
             cmbPilihBibit.Margin = new Padding(3, 4, 3, 4);
             cmbPilihBibit.Name = "cmbPilihBibit";
             cmbPilihBibit.Size = new Size(325, 28);
             cmbPilihBibit.TabIndex = 2;
+            cmbPilihBibit.SelectedIndexChanged += cmbPilihBibit_SelectedIndexChanged;
             // 
             // lblTipePenyesuaian
             // 
@@ -312,6 +311,7 @@
             rbStokMasuk.TabStop = true;
             rbStokMasuk.Text = "  ⬤  +  Stok Masuk";
             rbStokMasuk.UseVisualStyleBackColor = false;
+            rbStokMasuk.CheckedChanged += rbStokMasuk_CheckedChanged;
             // 
             // rbStokKeluar
             // 
@@ -329,6 +329,7 @@
             rbStokKeluar.TabIndex = 5;
             rbStokKeluar.Text = "  ⬤  -  Stok Keluar";
             rbStokKeluar.UseVisualStyleBackColor = false;
+            rbStokKeluar.CheckedChanged += rbStokKeluar_CheckedChanged;
             // 
             // rbSetManual
             // 
@@ -346,6 +347,7 @@
             rbSetManual.TabIndex = 6;
             rbSetManual.Text = "  ⬤  ✏  Set Manual";
             rbSetManual.UseVisualStyleBackColor = false;
+            rbSetManual.CheckedChanged += rbSetManual_CheckedChanged;
             // 
             // lblJumlah
             // 
@@ -380,6 +382,7 @@
             btnSimpan.TabIndex = 9;
             btnSimpan.Text = "Simpan Penyesuaian";
             btnSimpan.UseVisualStyleBackColor = false;
+            btnSimpan.Click += btnSimpan_Click;
             // 
             // panelStatus
             // 
@@ -420,7 +423,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvStok.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvStok.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvStok.Columns.AddRange(new DataGridViewColumn[] { colId, colNama, colJenis, colStok, colStatus });
+            dgvStok.Columns.AddRange(new DataGridViewColumn[] { colId, colNama, colKategori, colStok, colStatus });
             dgvStok.EnableHeadersVisualStyles = false;
             dgvStok.GridColor = Color.FromArgb(230, 230, 230);
             dgvStok.Location = new Point(0, 63);
@@ -432,7 +435,7 @@
             dgvStok.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvStok.Size = new Size(546, 393);
             dgvStok.TabIndex = 1;
-            dgvStok.CellContentClick += dgvStok_CellContentClick;
+            dgvStok.CellDoubleClick += dgvStok_CellDoubleClick;
             // 
             // colId
             // 
@@ -444,30 +447,32 @@
             // 
             // colNama
             // 
-            colNama.FillWeight = 180F;
+            colNama.FillWeight = 200F;
             colNama.HeaderText = "Nama Bibit";
             colNama.MinimumWidth = 6;
             colNama.Name = "colNama";
             colNama.ReadOnly = true;
             // 
-            // colJenis
+            // colKategori
             // 
-            colJenis.HeaderText = "Jenis";
-            colJenis.MinimumWidth = 6;
-            colJenis.Name = "colJenis";
-            colJenis.ReadOnly = true;
+            colKategori.FillWeight = 120F;
+            colKategori.HeaderText = "Kategori";
+            colKategori.MinimumWidth = 6;
+            colKategori.Name = "colKategori";
+            colKategori.ReadOnly = true;
             // 
             // colStok
             // 
-            colStok.FillWeight = 70F;
+            colStok.FillWeight = 80F;
             colStok.HeaderText = "Stok";
             colStok.MinimumWidth = 6;
             colStok.Name = "colStok";
             colStok.ReadOnly = true;
+            colStok.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             // 
             // colStatus
             // 
-            colStatus.FillWeight = 80F;
+            colStatus.FillWeight = 100F;
             colStatus.HeaderText = "Status";
             colStatus.MinimumWidth = 6;
             colStatus.Name = "colStatus";
@@ -488,6 +493,7 @@
             Margin = new Padding(3, 4, 3, 4);
             Name = "ManajemenStok";
             Size = new Size(1006, 800);
+            Load += ManajemenStok_Load;
             panelTotalStok.ResumeLayout(false);
             panelTotalStok.PerformLayout();
             panelMenipis.ResumeLayout(false);
@@ -535,10 +541,10 @@
         private System.Windows.Forms.Panel panelStatus;
         private System.Windows.Forms.Label lblStatusTitle;
         private System.Windows.Forms.DataGridView dgvStok;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNama;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colJenis;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colStok;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
+        private DataGridViewTextBoxColumn colId;
+        private DataGridViewTextBoxColumn colNama;
+        private DataGridViewTextBoxColumn colKategori;
+        private DataGridViewTextBoxColumn colStok;
+        private DataGridViewTextBoxColumn colStatus;
     }
 }

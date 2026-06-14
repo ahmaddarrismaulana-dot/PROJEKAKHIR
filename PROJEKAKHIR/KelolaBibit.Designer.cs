@@ -304,6 +304,7 @@
             dgvBibit.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvBibit.Size = new Size(983, 240);
             dgvBibit.TabIndex = 25;
+            dgvBibit.CellContentClick += dgvBibit_CellContentClick;
             // 
             // colIdBibit
             // 
@@ -339,7 +340,6 @@
             // 
             // colHarga
             // 
-            colHarga.FillWeight = 100F;
             colHarga.HeaderText = "Harga";
             colHarga.MinimumWidth = 6;
             colHarga.Name = "colHarga";

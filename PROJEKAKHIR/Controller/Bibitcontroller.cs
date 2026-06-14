@@ -166,7 +166,7 @@ namespace Bibitku.Controllers
                 using (var conn = DatabaseHelper.GetConnection())
                 {
                     conn.Open();
-                    string query = "DELETE FROM public.\"Bibit\" WHERE id_bibit = @id";
+                    string query = "DELETE FROM public.\"bibit\" WHERE id_bibit = @id";
 
                     using (var cmd = new NpgsqlCommand(query, conn))
                     {

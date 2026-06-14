@@ -230,5 +230,10 @@ namespace bibitku_app
         private void textUmurBibit_TextChanged(object sender, EventArgs e) { }
         private void picBibit_Click(object sender, EventArgs e) { }
         private void txtIdBibit_TextChanged(object sender, EventArgs e) { }
+
+        private void dgvBibit_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
