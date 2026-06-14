@@ -68,7 +68,7 @@ namespace BibitKu.Views
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information
                     );
-                    FORMPEMBELI fr = new FORMPEMBELI();
+                    FORMPEMBEL fr = new FORMPEMBEL();
                     fr.Show();
                 }
             }
