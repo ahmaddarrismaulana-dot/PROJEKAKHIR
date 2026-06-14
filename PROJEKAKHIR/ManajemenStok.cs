@@ -405,5 +405,15 @@ namespace bibitku_app
         private void panelTotalStok_Paint(object sender, PaintEventArgs e) { }
         private void panelMenipis_Paint(object sender, PaintEventArgs e) { }
         private void panelHabis_Paint(object sender, PaintEventArgs e) { }
+
+        private void lblMenipisTitle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvStok_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
