@@ -12,8 +12,6 @@
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.CheckBox chkTampilPassword;
-        private System.Windows.Forms.Label lblRole;
-        private System.Windows.Forms.ComboBox cmbRole;
         private System.Windows.Forms.Label lblPesan;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnBatal;
@@ -28,155 +26,213 @@
 
         private void InitializeComponent()
         {
-            this.lblJudul = new System.Windows.Forms.Label();
-            this.lblSubjudul = new System.Windows.Forms.Label();
-            this.pnlHeader = new System.Windows.Forms.Panel();
-            this.lblEmail = new System.Windows.Forms.Label();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.lblPassword = new System.Windows.Forms.Label();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.chkTampilPassword = new System.Windows.Forms.CheckBox();
-            this.lblRole = new System.Windows.Forms.Label();
-            this.cmbRole = new System.Windows.Forms.ComboBox();
-            this.lblPesan = new System.Windows.Forms.Label();
-            this.btnLogin = new System.Windows.Forms.Button();
-            this.btnBatal = new System.Windows.Forms.Button();
-
-            this.pnlHeader.SuspendLayout();
-            this.SuspendLayout();
-
-            // ── pnlHeader ────────────────────────────────────────────
-            this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(26, 53, 117);
-            this.pnlHeader.Controls.Add(this.lblSubjudul);
-            this.pnlHeader.Controls.Add(this.lblJudul);
-            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlHeader.Size = new System.Drawing.Size(400, 90);
-            this.pnlHeader.Location = new System.Drawing.Point(0, 0);
-
-            // ── lblJudul ─────────────────────────────────────────────
-            this.lblJudul.AutoSize = true;
-            this.lblJudul.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
-            this.lblJudul.ForeColor = System.Drawing.Color.White;
-            this.lblJudul.Location = new System.Drawing.Point(130, 12);
-            this.lblJudul.Text = "BibitKu";
-
-            // ── lblSubjudul ──────────────────────────────────────────
-            this.lblSubjudul.AutoSize = true;
-            this.lblSubjudul.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
-            this.lblSubjudul.ForeColor = System.Drawing.Color.FromArgb(180, 210, 255);
-            this.lblSubjudul.Location = new System.Drawing.Point(108, 58);
-            this.lblSubjudul.Text = "Marketplace Bibit Buah";
-
-            // ── lblEmail ─────────────────────────────────────────────
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblEmail.Location = new System.Drawing.Point(40, 110);
-            this.lblEmail.Text = "Email";
-
-            // ── txtEmail ─────────────────────────────────────────────
-            this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtEmail.Location = new System.Drawing.Point(40, 130);
-            this.txtEmail.Size = new System.Drawing.Size(310, 28);
-            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtEmail.PlaceholderText = "Masukkan email anda";
-
-            // ── lblPassword ──────────────────────────────────────────
-            this.lblPassword.AutoSize = true;
-            this.lblPassword.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblPassword.Location = new System.Drawing.Point(40, 170);
-            this.lblPassword.Text = "Password";
-
-            // ── txtPassword ──────────────────────────────────────────
-            this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtPassword.Location = new System.Drawing.Point(40, 190);
-            this.txtPassword.Size = new System.Drawing.Size(310, 28);
-            this.txtPassword.PasswordChar = '●';
-            this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPassword.PlaceholderText = "Masukkan password";
-
-            // ── chkTampilPassword ────────────────────────────────────
-            this.chkTampilPassword.AutoSize = true;
-            this.chkTampilPassword.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.chkTampilPassword.Location = new System.Drawing.Point(40, 225);
-            this.chkTampilPassword.Text = "Tampilkan password";
-            this.chkTampilPassword.CheckedChanged += new System.EventHandler(this.chkTampilPassword_CheckedChanged);
-
-            // ── lblRole ──────────────────────────────────────────────
-            this.lblRole.AutoSize = true;
-            this.lblRole.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblRole.Location = new System.Drawing.Point(40, 258);
-            this.lblRole.Text = "Login sebagai";
-
-            // ── cmbRole ──────────────────────────────────────────────
-            this.cmbRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbRole.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cmbRole.Location = new System.Drawing.Point(40, 278);
-            this.cmbRole.Size = new System.Drawing.Size(310, 28);
-            this.cmbRole.Items.AddRange(new object[] { "Penjual", "Pembeli" });
-            this.cmbRole.SelectedIndex = 0;
-
-            // ── lblPesan ─────────────────────────────────────────────
-            this.lblPesan.AutoSize = true;
-            this.lblPesan.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblPesan.ForeColor = System.Drawing.Color.Red;
-            this.lblPesan.Location = new System.Drawing.Point(40, 318);
-            this.lblPesan.Text = "";
-
-            // ── btnLogin ─────────────────────────────────────────────
-            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(30, 74, 153);
-            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.FlatAppearance.BorderSize = 0;
-            this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(40, 345);
-            this.btnLogin.Size = new System.Drawing.Size(145, 38);
-            this.btnLogin.Text = "Masuk";
-            this.btnLogin.UseVisualStyleBackColor = false;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
-
-            // ── btnBatal ─────────────────────────────────────────────
-            this.btnBatal.BackColor = System.Drawing.Color.FromArgb(240, 240, 240);
-            this.btnBatal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBatal.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.btnBatal.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.btnBatal.ForeColor = System.Drawing.Color.FromArgb(60, 60, 60);
-            this.btnBatal.Location = new System.Drawing.Point(205, 345);
-            this.btnBatal.Size = new System.Drawing.Size(145, 38);
-            this.btnBatal.Text = "Batal";
-            this.btnBatal.UseVisualStyleBackColor = false;
-            this.btnBatal.Click += new System.EventHandler(this.btnBatal_Click);
-
-            // ── Form ─────────────────────────────────────────────────
-            this.AcceptButton = this.btnLogin;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(400, 410);
-            this.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.MinimizeBox = true;
-            this.Name = "FormLogin";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "BibitKu — Login";
-
-            this.Controls.AddRange(new System.Windows.Forms.Control[]
-            {
-                this.pnlHeader,
-                this.lblEmail,
-                this.txtEmail,
-                this.lblPassword,
-                this.txtPassword,
-                this.chkTampilPassword,
-                this.lblRole,
-                this.cmbRole,
-                this.lblPesan,
-                this.btnLogin,
-                this.btnBatal
-            });
-
-            this.pnlHeader.ResumeLayout(false);
-            this.pnlHeader.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            lblJudul = new Label();
+            lblSubjudul = new Label();
+            pnlHeader = new Panel();
+            lblEmail = new Label();
+            txtEmail = new TextBox();
+            lblPassword = new Label();
+            txtPassword = new TextBox();
+            chkTampilPassword = new CheckBox();
+            lblPesan = new Label();
+            btnLogin = new Button();
+            btnBatal = new Button();
+            label1 = new Label();
+            guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            linkLabel1 = new LinkLabel();
+            pnlHeader.SuspendLayout();
+            SuspendLayout();
+            // 
+            // lblJudul
+            // 
+            lblJudul.AutoSize = true;
+            lblJudul.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            lblJudul.ForeColor = Color.White;
+            lblJudul.Location = new Point(130, 12);
+            lblJudul.Name = "lblJudul";
+            lblJudul.Size = new Size(139, 46);
+            lblJudul.TabIndex = 1;
+            lblJudul.Text = "BibitKu";
+            // 
+            // lblSubjudul
+            // 
+            lblSubjudul.AutoSize = true;
+            lblSubjudul.Font = new Font("Segoe UI", 9F, FontStyle.Italic);
+            lblSubjudul.ForeColor = Color.FromArgb(180, 210, 255);
+            lblSubjudul.Location = new Point(108, 58);
+            lblSubjudul.Name = "lblSubjudul";
+            lblSubjudul.Size = new Size(158, 20);
+            lblSubjudul.TabIndex = 0;
+            lblSubjudul.Text = "Marketplace Bibit Buah";
+            // 
+            // pnlHeader
+            // 
+            pnlHeader.BackColor = Color.FromArgb(26, 53, 117);
+            pnlHeader.Controls.Add(lblSubjudul);
+            pnlHeader.Controls.Add(lblJudul);
+            pnlHeader.Dock = DockStyle.Top;
+            pnlHeader.Location = new Point(0, 0);
+            pnlHeader.Name = "pnlHeader";
+            pnlHeader.Size = new Size(400, 90);
+            pnlHeader.TabIndex = 0;
+            // 
+            // lblEmail
+            // 
+            lblEmail.AutoSize = true;
+            lblEmail.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblEmail.Location = new Point(40, 110);
+            lblEmail.Name = "lblEmail";
+            lblEmail.Size = new Size(47, 20);
+            lblEmail.TabIndex = 1;
+            lblEmail.Text = "Email";
+            // 
+            // txtEmail
+            // 
+            txtEmail.BorderStyle = BorderStyle.FixedSingle;
+            txtEmail.Font = new Font("Segoe UI", 10F);
+            txtEmail.Location = new Point(40, 130);
+            txtEmail.Name = "txtEmail";
+            txtEmail.PlaceholderText = "Masukkan email anda";
+            txtEmail.Size = new Size(310, 30);
+            txtEmail.TabIndex = 2;
+            // 
+            // lblPassword
+            // 
+            lblPassword.AutoSize = true;
+            lblPassword.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblPassword.Location = new Point(40, 170);
+            lblPassword.Name = "lblPassword";
+            lblPassword.Size = new Size(76, 20);
+            lblPassword.TabIndex = 3;
+            lblPassword.Text = "Password";
+            // 
+            // txtPassword
+            // 
+            txtPassword.BorderStyle = BorderStyle.FixedSingle;
+            txtPassword.Font = new Font("Segoe UI", 10F);
+            txtPassword.Location = new Point(40, 190);
+            txtPassword.Name = "txtPassword";
+            txtPassword.PasswordChar = '●';
+            txtPassword.PlaceholderText = "Masukkan password";
+            txtPassword.Size = new Size(310, 30);
+            txtPassword.TabIndex = 4;
+            // 
+            // chkTampilPassword
+            // 
+            chkTampilPassword.AutoSize = true;
+            chkTampilPassword.Font = new Font("Segoe UI", 9F);
+            chkTampilPassword.Location = new Point(40, 225);
+            chkTampilPassword.Name = "chkTampilPassword";
+            chkTampilPassword.Size = new Size(165, 24);
+            chkTampilPassword.TabIndex = 5;
+            chkTampilPassword.Text = "Tampilkan password";
+            chkTampilPassword.CheckedChanged += chkTampilPassword_CheckedChanged;
+            // 
+            // lblRole
+            // 
+ 
+            // cmbRole
+            //
+            // 
+            // lblPesan
+            // 
+            lblPesan.AutoSize = true;
+            lblPesan.Font = new Font("Segoe UI", 9F);
+            lblPesan.ForeColor = Color.Red;
+            lblPesan.Location = new Point(40, 318);
+            lblPesan.Name = "lblPesan";
+            lblPesan.Size = new Size(0, 20);
+            lblPesan.TabIndex = 8;
+            // 
+            // btnLogin
+            // 
+            btnLogin.BackColor = Color.FromArgb(30, 74, 153);
+            btnLogin.FlatAppearance.BorderSize = 0;
+            btnLogin.FlatStyle = FlatStyle.Flat;
+            btnLogin.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnLogin.ForeColor = Color.White;
+            btnLogin.Location = new Point(40, 326);
+            btnLogin.Name = "btnLogin";
+            btnLogin.Size = new Size(145, 38);
+            btnLogin.TabIndex = 9;
+            btnLogin.Text = "Masuk";
+            btnLogin.UseVisualStyleBackColor = false;
+            btnLogin.Click += btnLogin_Click;
+            // 
+            // btnBatal
+            // 
+            btnBatal.BackColor = Color.FromArgb(240, 240, 240);
+            btnBatal.FlatAppearance.BorderColor = Color.Silver;
+            btnBatal.FlatStyle = FlatStyle.Flat;
+            btnBatal.Font = new Font("Segoe UI", 10F);
+            btnBatal.ForeColor = Color.FromArgb(60, 60, 60);
+            btnBatal.Location = new Point(205, 327);
+            btnBatal.Name = "btnBatal";
+            btnBatal.Size = new Size(145, 38);
+            btnBatal.TabIndex = 10;
+            btnBatal.Text = "Batal";
+            btnBatal.UseVisualStyleBackColor = false;
+            btnBatal.Click += btnBatal_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(98, 368);
+            label1.Name = "label1";
+            label1.Size = new Size(137, 20);
+            label1.TabIndex = 11;
+            label1.Text = "Belum punya akun?";
+            // 
+            // guna2HtmlLabel1
+            // 
+            guna2HtmlLabel1.BackColor = Color.Transparent;
+            guna2HtmlLabel1.Location = new Point(106, 376);
+            guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            guna2HtmlLabel1.Size = new Size(3, 2);
+            guna2HtmlLabel1.TabIndex = 12;
+            // 
+            // linkLabel1
+            // 
+            linkLabel1.AutoSize = true;
+            linkLabel1.Location = new Point(230, 368);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new Size(51, 20);
+            linkLabel1.TabIndex = 13;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "Daftar";
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
+            // 
+            // FormLogin
+            // 
+            AcceptButton = btnLogin;
+            BackColor = Color.White;
+            ClientSize = new Size(400, 410);
+            Controls.Add(linkLabel1);
+            Controls.Add(guna2HtmlLabel1);
+            Controls.Add(label1);
+            Controls.Add(pnlHeader);
+            Controls.Add(lblEmail);
+            Controls.Add(txtEmail);
+            Controls.Add(lblPassword);
+            Controls.Add(txtPassword);
+            Controls.Add(chkTampilPassword);
+            Controls.Add(lblPesan);
+            Controls.Add(btnLogin);
+            Controls.Add(btnBatal);
+            Font = new Font("Segoe UI", 9F);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            Name = "FormLogin";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "BibitKu — Login";
+            pnlHeader.ResumeLayout(false);
+            pnlHeader.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
+
+        private Label label1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private LinkLabel linkLabel1;
     }
 }
