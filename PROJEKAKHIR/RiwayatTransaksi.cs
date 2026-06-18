@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace PROJEKAKHIR
 {
-    public partial class FORMPEMBEL : Form
+    public partial class RiwayatTransaksi : UserControl
     {
-        public FORMPEMBEL()
+        public RiwayatTransaksi()
         {
             InitializeComponent();
         }

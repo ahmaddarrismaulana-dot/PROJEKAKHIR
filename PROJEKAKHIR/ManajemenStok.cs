@@ -6,7 +6,7 @@ using System.Windows.Forms;
 using Bibitku.Controllers;
 using PROJEKAKHIR.Models;
 
-namespace bibitku_app
+namespace PROJEKAKHIR
 {
     public partial class ManajemenStok : UserControl
     {

@@ -5,7 +5,7 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
-namespace bibitku_app
+namespace PROJEKAKHIR
 {
     public partial class KelolaBibit : UserControl
     {

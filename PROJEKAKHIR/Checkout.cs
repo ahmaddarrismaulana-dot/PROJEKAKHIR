@@ -8,16 +8,11 @@ using System.Windows.Forms;
 
 namespace PROJEKAKHIR
 {
-    public partial class TransaksiMasuk : UserControl
+    public partial class Checkout : UserControl
     {
-        public TransaksiMasuk()
+        public Checkout()
         {
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

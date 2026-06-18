@@ -1,4 +1,4 @@
-﻿namespace bibitku_app
+﻿namespace PROJEKAKHIR
 {
     partial class Form1
     {

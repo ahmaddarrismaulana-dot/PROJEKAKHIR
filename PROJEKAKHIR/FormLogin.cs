@@ -3,7 +3,6 @@ using System.Drawing;
 using System.Windows.Forms;
 using BibitKu.Controllers;
 using BibitKu.Models;
-using bibitku_app;
 using PROJEKAKHIR;
 
 namespace BibitKu.Views   
@@ -67,7 +66,7 @@ namespace BibitKu.Views
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information
                     );
-                    FORMPEMBEL fr = new FORMPEMBEL();
+                    FormPembeli fr = new FormPembeli();
                     fr.Show();
                 }
             }
