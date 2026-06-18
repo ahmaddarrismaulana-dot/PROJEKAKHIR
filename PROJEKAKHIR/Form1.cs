@@ -38,6 +38,7 @@
         private void button2_Click(object sender, EventArgs e)
         {
             ShowPanel(manajemenStok1, button2);
+            manajemenStok1.Mengulangdata();
         }
 
         // Transaksi Masuk → button3
