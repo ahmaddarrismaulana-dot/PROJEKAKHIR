@@ -419,5 +419,9 @@ namespace bibitku_app
         {
             LoadData();
         }
+        public void kelasujicoba()
+        {
+            LoadData();
+        }
     }
 }
