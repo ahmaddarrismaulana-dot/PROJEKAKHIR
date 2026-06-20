@@ -6,6 +6,21 @@
         {
             InitializeComponent();
         }
+        private void ShowPanel(Control targetControl, Button activeButton)
+        {
+            // Sembunyikan semua user control
+            keranjang1.Visible = false;
+            riwayatTransaksi1.Visible = false;
+            katalog1.Visible = false;
+
+            // Tampilkan yang dipilih
+            targetControl.Visible = true;
+
+            // Pindahkan SidePanel ke posisi tombol yang aktif
+            SidePanel.Height = activeButton.Height;
+            SidePanel.Top = activeButton.Top;
+        }
+
 
         private void FormPembeli_Load(object sender, EventArgs e)
         {
@@ -14,7 +29,7 @@
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            ShowPanel(katalog1, button1);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -55,6 +70,21 @@
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void buttonKeranjang_Click(object sender, EventArgs e)
+        {
+            ShowPanel(keranjang1, buttonKeranjang);
+        }
+
+        private void buttonRiwayat_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void buttonRiwayat_Click_1(object sender, EventArgs e)
+        {
+            ShowPanel(riwayatTransaksi1, buttonRiwayat);
         }
     }
 }

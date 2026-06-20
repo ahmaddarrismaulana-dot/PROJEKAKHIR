@@ -117,6 +117,7 @@
             SidePanel.Name = "SidePanel";
             SidePanel.Size = new Size(10, 58);
             SidePanel.TabIndex = 2;
+            SidePanel.Paint += SidePanel_Paint;
             // 
             // button3
             // 

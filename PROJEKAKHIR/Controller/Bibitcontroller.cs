@@ -18,32 +18,31 @@ namespace Bibitku.Controllers
                     conn.Open();
 
                     string query = @"
-                        INSERT INTO public.bibit
-                        (
-                            id_toko,
-                            id_kategori,
-                            nama_bibit,
-                            harga,
-                            stok,
-                            umur_bibit,
-                            deskripsi,
-                            foto_bibit
-                        )
-                        VALUES
-                        (
-                            @id_toko,
-                            @id_kategori,
-                            @nama_bibit,
-                            @harga,
-                            @stok,
-                            @umur_bibit,
-                            @deskripsi,
-                            @foto_bibit
-                        )";
-
+INSERT INTO public.bibit
+(
+    id_toko,
+    id_kategori,
+    nama_bibit,
+    harga,
+    stok,
+    umur_bibit,
+    deskripsi,
+    foto_bibit
+)
+VALUES
+(
+    @id_toko,
+    @id_kategori,
+    @nama_bibit,
+    @harga,
+    @stok,
+    @umur_bibit,
+    @deskripsi,
+    @foto_bibit
+)";
                     using (var cmd = new NpgsqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("id_toko", bibit.id_toko.id_Toko);
+                        cmd.Parameters.AddWithValue("id_toko", bibit.id_toko);
                         cmd.Parameters.AddWithValue("id_kategori", bibit.id_kategori.id_kategori);
                         cmd.Parameters.AddWithValue("nama_bibit", bibit.nama_bibit);
                         cmd.Parameters.AddWithValue("harga", bibit.harga);
@@ -51,6 +50,7 @@ namespace Bibitku.Controllers
                         cmd.Parameters.AddWithValue("umur_bibit", bibit.umur_bibit);
                         cmd.Parameters.AddWithValue("deskripsi", bibit.deskripsi);
                         cmd.Parameters.AddWithValue("foto_bibit", bibit.foto_bibit ?? (object)DBNull.Value);
+
 
                         return cmd.ExecuteNonQuery() > 0;
                     }
@@ -74,10 +74,21 @@ namespace Bibitku.Controllers
                     conn.Open();
 
                     string query = @"
-                SELECT b.*, kb.""nama_kategori"" 
-                FROM bibit b
-                LEFT JOIN ""Kategori_Bibit"" kb ON b.""id_kategori"" = kb.""id_kategori""
-                ORDER BY b.""id_bibit""";
+SELECT
+    bibit.id_bibit,
+    bibit.id_toko,
+    bibit.nama_bibit,
+    bibit.harga,
+    bibit.stok,
+    bibit.umur_bibit,
+    bibit.deskripsi,
+    bibit.foto_bibit,
+    ""Kategori_Bibit"".nama_kategori
+FROM public.bibit
+LEFT JOIN public.""Kategori_Bibit""
+ON bibit.id_kategori = ""Kategori_Bibit"".id_kategori
+WHERE bibit.status_aktif = TRUE
+ORDER BY bibit.id_bibit DESC";
 
                     using (var cmd = new NpgsqlCommand(query, conn))
                     using (var reader = cmd.ExecuteReader())
@@ -85,15 +96,22 @@ namespace Bibitku.Controllers
                         while (reader.Read())
                         {
                             Bibit bibit = new Bibit();
+
                             bibit.id_bibit = Convert.ToInt32(reader["id_bibit"]);
+                            bibit.id_toko = Convert.ToInt32(reader["id_toko"]);
                             bibit.nama_bibit = reader["nama_bibit"].ToString();
                             bibit.harga = Convert.ToInt32(reader["harga"]);
                             bibit.stok = Convert.ToInt32(reader["stok"]);
                             bibit.umur_bibit = reader["umur_bibit"].ToString();
                             bibit.deskripsi = reader["deskripsi"].ToString();
                             bibit.foto_bibit = reader["foto_bibit"] as byte[];
+                            bibit.nama_kategori =
+                                reader["nama_kategori"]?.ToString() ?? "-";
+
+                        
 
                             // Ambil nama_kategori jika ada
+
                             if (reader["nama_kategori"] != DBNull.Value)
                             {
                                 bibit.nama_kategori = reader["nama_kategori"].ToString();
@@ -110,7 +128,8 @@ namespace Bibitku.Controllers
             }
             catch (Exception ex)
             {
-                throw new Exception("Gagal mengambil data bibit: " + ex.Message);
+                MessageBox.Show(ex.ToString());
+                throw;
             }
 
             return daftarBibit;
@@ -166,18 +185,37 @@ namespace Bibitku.Controllers
                 using (var conn = DatabaseHelper.GetConnection())
                 {
                     conn.Open();
-                    string query = "DELETE FROM public.\"bibit\" WHERE id_bibit = @id";
+
+                    // Hapus dari keranjang
+                    string deleteKeranjang = @"
+                DELETE FROM ""Keranjang""
+                WHERE id_bibit = @id";
+
+                    using (var cmdKeranjang =
+                        new NpgsqlCommand(deleteKeranjang, conn))
+                    {
+                        cmdKeranjang.Parameters.AddWithValue("id", idBibit);
+                        cmdKeranjang.ExecuteNonQuery();
+                    }
+
+                    // Soft delete
+                    string query = @"
+                UPDATE public.bibit
+                SET status_aktif = FALSE
+                WHERE id_bibit = @id";
 
                     using (var cmd = new NpgsqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("id", idBibit);
+
                         return cmd.ExecuteNonQuery() > 0;
                     }
                 }
             }
             catch (Exception ex)
             {
-                throw new Exception("Gagal menghapus bibit: " + ex.Message);
+                throw new Exception(
+                    "Gagal menonaktifkan bibit: " + ex.Message);
             }
         }
 
@@ -193,10 +231,12 @@ namespace Bibitku.Controllers
                     conn.Open();
 
                     string query = @"
-                        SELECT b.*, kb.nama_kategori 
-                        FROM public.bibit b
-                        LEFT JOIN public.""Kategori_Bibit"" kb ON b.id_kategori = kb.id_kategori
-                        WHERE b.nama_bibit ILIKE @keyword";
+                    SELECT b.*, kb.nama_kategori
+                    FROM public.bibit b
+                    LEFT JOIN public.""Kategori_Bibit"" kb
+                        ON b.id_kategori = kb.id_kategori
+                    WHERE b.nama_bibit ILIKE @keyword
+                      AND b.status_aktif = TRUE";
 
                     using (var cmd = new NpgsqlCommand(query, conn))
                     {

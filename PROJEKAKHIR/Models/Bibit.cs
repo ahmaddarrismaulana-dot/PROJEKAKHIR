@@ -5,7 +5,7 @@ namespace PROJEKAKHIR.Models
     public class Bibit
     {
         public int id_bibit { get; set; }
-        public Toko id_toko { get; set; }
+        public int id_toko { get; set; }
         public Kategori id_kategori { get; set; }
         public string nama_bibit { get; set; }
         public int harga { get; set; }

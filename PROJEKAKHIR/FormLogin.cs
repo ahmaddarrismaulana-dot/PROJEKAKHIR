@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using BibitKu.Controllers;
 using BibitKu.Models;
+using BibitKu.Helpers;
 using PROJEKAKHIR;
 
 namespace BibitKu.Views   
@@ -43,6 +44,7 @@ namespace BibitKu.Views
                     return;
                 }
 
+                Session.CurrentUser = user;
                 TampilPesan("Login berhasil!", Color.Green);
                 this.Hide();
 

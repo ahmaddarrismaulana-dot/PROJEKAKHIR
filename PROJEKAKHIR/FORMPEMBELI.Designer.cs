@@ -1,4 +1,5 @@
-﻿namespace PROJEKAKHIR
+﻿
+namespace PROJEKAKHIR
 {
     partial class FormPembeli
     {
@@ -25,10 +26,13 @@
             pictureBox1 = new PictureBox();
             SidePanel = new Panel();
             button3 = new Button();
-            button5 = new Button();
+            buttonRiwayat = new Button();
             button4 = new Button();
-            button2 = new Button();
+            buttonKeranjang = new Button();
             button1 = new Button();
+            katalog1 = new Katalog();
+            keranjang1 = new Keranjang();
+            riwayatTransaksi1 = new RiwayatTransaksi();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -44,9 +48,9 @@
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(SidePanel);
             panel1.Controls.Add(button3);
-            panel1.Controls.Add(button5);
+            panel1.Controls.Add(buttonRiwayat);
             panel1.Controls.Add(button4);
-            panel1.Controls.Add(button2);
+            panel1.Controls.Add(buttonKeranjang);
             panel1.Controls.Add(button1);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
@@ -123,21 +127,22 @@
             button3.TextImageRelation = TextImageRelation.ImageBeforeText;
             button3.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // buttonRiwayat
             // 
-            button5.FlatAppearance.BorderSize = 0;
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button5.ForeColor = Color.White;
-            button5.Image = (Image)resources.GetObject("button5.Image");
-            button5.ImageAlign = ContentAlignment.MiddleLeft;
-            button5.Location = new Point(12, 346);
-            button5.Name = "button5";
-            button5.Size = new Size(237, 58);
-            button5.TabIndex = 2;
-            button5.Text = "   RIwayat Transaksi";
-            button5.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button5.UseVisualStyleBackColor = true;
+            buttonRiwayat.FlatAppearance.BorderSize = 0;
+            buttonRiwayat.FlatStyle = FlatStyle.Flat;
+            buttonRiwayat.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buttonRiwayat.ForeColor = Color.White;
+            buttonRiwayat.Image = (Image)resources.GetObject("buttonRiwayat.Image");
+            buttonRiwayat.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonRiwayat.Location = new Point(12, 346);
+            buttonRiwayat.Name = "buttonRiwayat";
+            buttonRiwayat.Size = new Size(237, 58);
+            buttonRiwayat.TabIndex = 2;
+            buttonRiwayat.Text = "   RIwayat Transaksi";
+            buttonRiwayat.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonRiwayat.UseVisualStyleBackColor = true;
+            buttonRiwayat.Click += buttonRiwayat_Click_1;
             // 
             // button4
             // 
@@ -155,21 +160,22 @@
             button4.TextImageRelation = TextImageRelation.ImageBeforeText;
             button4.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // buttonKeranjang
             // 
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button2.ForeColor = Color.White;
-            button2.Image = (Image)resources.GetObject("button2.Image");
-            button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(12, 218);
-            button2.Name = "button2";
-            button2.Size = new Size(237, 58);
-            button2.TabIndex = 2;
-            button2.Text = "   Keranjang";
-            button2.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button2.UseVisualStyleBackColor = true;
+            buttonKeranjang.FlatAppearance.BorderSize = 0;
+            buttonKeranjang.FlatStyle = FlatStyle.Flat;
+            buttonKeranjang.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buttonKeranjang.ForeColor = Color.White;
+            buttonKeranjang.Image = (Image)resources.GetObject("buttonKeranjang.Image");
+            buttonKeranjang.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonKeranjang.Location = new Point(12, 218);
+            buttonKeranjang.Name = "buttonKeranjang";
+            buttonKeranjang.Size = new Size(237, 58);
+            buttonKeranjang.TabIndex = 2;
+            buttonKeranjang.Text = "   Keranjang";
+            buttonKeranjang.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonKeranjang.UseVisualStyleBackColor = true;
+            buttonKeranjang.Click += buttonKeranjang_Click;
             // 
             // button1
             // 
@@ -188,12 +194,42 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // katalog1
+            // 
+            katalog1.BackColor = Color.White;
+            katalog1.Location = new Point(251, 0);
+            katalog1.Margin = new Padding(3, 4, 3, 4);
+            katalog1.Name = "katalog1";
+            katalog1.Size = new Size(1229, 1034);
+            katalog1.TabIndex = 1;
+            // 
+            // keranjang1
+            // 
+            keranjang1.BackColor = Color.White;
+            keranjang1.Location = new Point(251, 0);
+            keranjang1.Margin = new Padding(3, 4, 3, 4);
+            keranjang1.Name = "keranjang1";
+            keranjang1.Size = new Size(1182, 1034);
+            keranjang1.TabIndex = 2;
+            // 
+            // riwayatTransaksi1
+            // 
+            riwayatTransaksi1.BackColor = Color.White;
+            riwayatTransaksi1.Location = new Point(250, 0);
+            riwayatTransaksi1.Margin = new Padding(3, 4, 3, 4);
+            riwayatTransaksi1.Name = "riwayatTransaksi1";
+            riwayatTransaksi1.Size = new Size(1229, 790);
+            riwayatTransaksi1.TabIndex = 3;
+            // 
             // FormPembeli
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1415, 742);
+            Controls.Add(riwayatTransaksi1);
+            Controls.Add(keranjang1);
+            Controls.Add(katalog1);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FormPembeli";
@@ -216,9 +252,12 @@
         private PictureBox pictureBox1;
         private Label label1;
         private Label label2;
-        private Button button2;
+        private Button buttonKeranjang;
         private PictureBox pictureBox2;
-        private Button button5;
+        private Button buttonRiwayat;
         private Button button4;
+        private Katalog katalog1;
+        private Keranjang keranjang1;
+        private RiwayatTransaksi riwayatTransaksi1;
     }
 }

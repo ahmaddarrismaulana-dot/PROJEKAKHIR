@@ -240,6 +240,7 @@
             Margin = new Padding(3, 4, 3, 4);
             Name = "Keranjang";
             Size = new Size(946, 827);
+            Load += Keranjang_Load_1;
             ((System.ComponentModel.ISupportInitialize)dgvKeranjang).EndInit();
             ResumeLayout(false);
             PerformLayout();

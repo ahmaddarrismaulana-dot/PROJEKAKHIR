@@ -1,5 +1,7 @@
 ﻿using Bibitku.Controllers;
+using BibitKu.Models;
 using PROJEKAKHIR.Models;
+using BibitKu.Helpers;
 using System;
 using System.Drawing;
 using System.IO;
@@ -146,8 +148,21 @@ namespace PROJEKAKHIR
                 bibit.id_kategori = new Kategori();
                 bibit.id_kategori.id_kategori = Convert.ToInt32(cmbKategori.SelectedValue);
 
-                bibit.id_toko = new Toko();
-                bibit.id_toko.id_Toko = 1; // sementara hardcode
+                Penjual penjual = Session.CurrentUser as Penjual;
+
+                if (penjual == null)
+                {
+                    MessageBox.Show("User bukan penjual atau belum login!");
+                    return;
+                }
+
+                if (Session.IdToko <= 0)
+                {
+                    MessageBox.Show("Toko tidak valid!");
+                    return;
+                }
+
+                bibit.id_toko = Session.IdToko;
 
                 // PERUBAHAN PENTING: Umur bibit sebagai string, bukan Convert.ToInt32
                 bibit.umur_bibit = textUmurBibit.Text; // Langsung assign string
@@ -247,16 +262,28 @@ namespace PROJEKAKHIR
 
                 if (hasil == DialogResult.Yes)
                 {
-                    bool berhasil = controller.HapusBibit(idBibit);
+                    try
+                    {
+                        bool berhasil = controller.HapusBibit(idBibit);
 
-                    if (berhasil)
-                    {
-                        MessageBox.Show("Data berhasil dihapus");
-                        LoadDataBibit();
+                        if (berhasil)
+                        {
+                            MessageBox.Show(
+                                "Data berhasil dihapus",
+                                "Sukses",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+
+                            LoadDataBibit();
+                        }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        MessageBox.Show("Data gagal dihapus");
+                        MessageBox.Show(
+                            ex.Message,
+                            "Tidak Bisa Menghapus",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning);
                     }
                 }
             }

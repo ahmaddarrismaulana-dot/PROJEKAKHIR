@@ -19,12 +19,18 @@ namespace Bibitku.Controllers
                 {
                     conn.Open();
                     string query = @"
-                        SELECT b.""id_bibit"", b.""nama_bibit"",
-                               b.""stok"", b.""harga"", b.""umur_bibit"", 
-                               b.""deskripsi"", kb.""nama_kategori""
-                        FROM bibit b
-                        LEFT JOIN ""Kategori_Bibit"" kb ON b.""id_kategori"" = kb.""id_kategori""
-                        ORDER BY b.""id_bibit""";
+    SELECT b.id_bibit,
+           b.nama_bibit,
+           b.stok,
+           b.harga,
+           b.umur_bibit,
+           b.deskripsi,
+           kb.nama_kategori
+    FROM public.bibit b
+    LEFT JOIN public.""Kategori_Bibit"" kb
+        ON b.id_kategori = kb.id_kategori
+    WHERE b.status_aktif = TRUE
+    ORDER BY b.id_bibit";
 
                     using (var cmd = new NpgsqlCommand(query, conn))
                     using (var reader = cmd.ExecuteReader())
@@ -69,21 +75,33 @@ namespace Bibitku.Controllers
                     conn.Open();
 
                     // Total stok
-                    string queryTotal = "SELECT COALESCE(SUM(\"stok\"), 0) FROM \"bibit\"";
+                    string queryTotal =
+                    @"SELECT COALESCE(SUM(stok),0)
+                      FROM public.bibit
+                      WHERE status_aktif = TRUE";
                     using (var cmdTotal = new NpgsqlCommand(queryTotal, conn))
                     {
                         totalStok = Convert.ToInt32(cmdTotal.ExecuteScalar());
                     }
 
                     // Stok menipis (stok < 20 dan stok > 0)
-                    string queryMenipis = "SELECT COUNT(*) FROM \"bibit\" WHERE \"stok\" < 20 AND \"stok\" > 0";
+                    string queryMenipis =
+                    @"SELECT COUNT(*)
+                      FROM public.bibit
+                      WHERE stok < 20
+                      AND stok > 0
+                      AND status_aktif = TRUE";
                     using (var cmdMenipis = new NpgsqlCommand(queryMenipis, conn))
                     {
                         stokMenipis = Convert.ToInt32(cmdMenipis.ExecuteScalar());
                     }
 
                     // Stok habis (stok = 0)
-                    string queryHabis = "SELECT COUNT(*) FROM \"bibit\" WHERE \"stok\" = 0";
+                    string queryHabis =
+                    @"SELECT COUNT(*)
+                      FROM public.bibit
+                      WHERE stok = 0
+                      AND status_aktif = TRUE";
                     using (var cmdHabis = new NpgsqlCommand(queryHabis, conn))
                     {
                         stokHabis = Convert.ToInt32(cmdHabis.ExecuteScalar());

@@ -5,34 +5,18 @@ using BibitKu.Helpers;
 
 namespace BibitKu.Controllers
 {
-    // ================================================================
-    //  Controller: LoginController
-    //  Menghubungkan View (FormLogin) dengan Model (User)
-    //  Menerapkan konsep: Enkapsulasi, Polymorphism
-    // ================================================================
     public class LoginController
     {
-        // ── LOGIN ────────────────────────────────────────────────────
-        // Overloading: Login(email, password) dan Login(email, password, role)
-        // Menerapkan konsep: Method Overloading
-
-        /// <summary>
-        /// Login tanpa filter role — cari user berdasarkan email & password saja.
-        /// </summary>
         public User Login(string email, string password)
         {
             return CariUser(email, password, null);
         }
 
-        /// <summary>
-        /// Login dengan filter role — validasi email, password, DAN role sekaligus.
-        /// </summary>
         public User Login(string email, string password, string role)
         {
             return CariUser(email, password, role);
         }
 
-        // ── Private: Query ke database ───────────────────────────────
         private User CariUser(string email, string password, string role)
         {
             User user = null;
@@ -43,18 +27,17 @@ namespace BibitKu.Controllers
                 {
                     conn.Open();
 
-                    // Susun query — jika role disertakan, tambahkan filter role
                     string query = @"
                         SELECT u.id, u.nama, u.email, u.password,
                                u.no_telpon, u.alamat, u.role,
-                               t.nama_toko
+                               t.id_toko, t.nama_toko
                         FROM ""User"" u
                         LEFT JOIN ""Toko"" t ON t.id_user = u.id
-                        WHERE u.email    = @email
+                        WHERE u.email = @email
                           AND u.password = @password";
 
                     if (!string.IsNullOrEmpty(role))
-                        query += @" AND u.role = @role";
+                        query += " AND u.role = @role";
 
                     query += " LIMIT 1";
 
@@ -77,18 +60,18 @@ namespace BibitKu.Controllers
                                 string alamat = reader.GetString(5);
                                 string roleDb = reader.GetString(6);
 
-                                // Polymorphism: bentuk objek berbeda tergantung role
+                                string namaToko = reader.IsDBNull(8) ? "-" : reader.GetString(8);
+
+                                // ✔ PENJUAL
                                 if (roleDb == "Penjual")
                                 {
-                                    string namaToko = reader.IsDBNull(7)
-                                        ? "-" : reader.GetString(7);
-
                                     user = new Penjual(id, nama, em, namaToko)
                                     {
                                         NoTelpon = noTelpon,
                                         Alamat = alamat
                                     };
                                 }
+                                // ✔ PEMBELI
                                 else if (roleDb == "Pembeli")
                                 {
                                     user = new Pembeli(id, nama, em)
@@ -96,6 +79,12 @@ namespace BibitKu.Controllers
                                         NoTelpon = noTelpon,
                                         Alamat = alamat
                                     };
+                                }
+
+                                // 🔥 TAMBAHAN PENTING: SIMPAN ID TOKO KE SESSION
+                                if (roleDb == "Penjual" && !reader.IsDBNull(7))
+                                {
+                                    Session.IdToko = reader.GetInt32(7);
                                 }
                             }
                         }
@@ -107,10 +96,9 @@ namespace BibitKu.Controllers
                 throw new Exception("Gagal terhubung ke database: " + ex.Message);
             }
 
-            return user; // null = login gagal
+            return user;
         }
 
-        // ── VALIDASI INPUT ───────────────────────────────────────────
         public string ValidasiInput(string email, string password)
         {
             if (string.IsNullOrWhiteSpace(email))
@@ -125,7 +113,7 @@ namespace BibitKu.Controllers
             if (password.Length < 6)
                 return "Password minimal 6 karakter.";
 
-            return null; // null = valid
+            return null;
         }
     }
 }

@@ -1,7 +1,10 @@
-﻿namespace PROJEKAKHIR
+﻿using BibitKu.Helpers;
+using BibitKu.Models;
+namespace PROJEKAKHIR
 {
     public partial class Form1 : Form
     {
+
         public Form1()
         {
             InitializeComponent();
@@ -9,7 +12,16 @@
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // Tampilkan Kelola Bibit sebagai default saat form dibuka
+            if (Session.CurrentUser is Penjual penjual)
+            {
+                MessageBox.Show(
+                    $"ID User : {penjual.Id}\n" +
+                    $"ID Toko : {Session.IdToko}\n" +
+                    $"Nama : {penjual.Nama}\n" +
+                    $"Toko : {penjual.NamaToko}"
+                );
+            }
+
             ShowPanel(kelolaBibit2, button1);
         }
 
@@ -57,5 +69,10 @@
         private void manajemenStok1_Load_1(object sender, EventArgs e) { }
         private void pictureBox2_Click(object sender, EventArgs e) { }
         private void kelolaBibit1_Load_1(object sender, EventArgs e) { }
+
+        private void SidePanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
