@@ -27,7 +27,6 @@ namespace PROJEKAKHIR
             SidePanel = new Panel();
             button3 = new Button();
             buttonRiwayat = new Button();
-            button4 = new Button();
             buttonKeranjang = new Button();
             button1 = new Button();
             katalog1 = new Katalog();
@@ -49,7 +48,6 @@ namespace PROJEKAKHIR
             panel1.Controls.Add(SidePanel);
             panel1.Controls.Add(button3);
             panel1.Controls.Add(buttonRiwayat);
-            panel1.Controls.Add(button4);
             panel1.Controls.Add(buttonKeranjang);
             panel1.Controls.Add(button1);
             panel1.Dock = DockStyle.Left;
@@ -135,7 +133,7 @@ namespace PROJEKAKHIR
             buttonRiwayat.ForeColor = Color.White;
             buttonRiwayat.Image = (Image)resources.GetObject("buttonRiwayat.Image");
             buttonRiwayat.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonRiwayat.Location = new Point(12, 346);
+            buttonRiwayat.Location = new Point(12, 282);
             buttonRiwayat.Name = "buttonRiwayat";
             buttonRiwayat.Size = new Size(237, 58);
             buttonRiwayat.TabIndex = 2;
@@ -143,22 +141,6 @@ namespace PROJEKAKHIR
             buttonRiwayat.TextImageRelation = TextImageRelation.ImageBeforeText;
             buttonRiwayat.UseVisualStyleBackColor = true;
             buttonRiwayat.Click += buttonRiwayat_Click_1;
-            // 
-            // button4
-            // 
-            button4.FlatAppearance.BorderSize = 0;
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button4.ForeColor = Color.White;
-            button4.Image = (Image)resources.GetObject("button4.Image");
-            button4.ImageAlign = ContentAlignment.MiddleLeft;
-            button4.Location = new Point(12, 282);
-            button4.Name = "button4";
-            button4.Size = new Size(237, 58);
-            button4.TabIndex = 2;
-            button4.Text = "   Checkout";
-            button4.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button4.UseVisualStyleBackColor = true;
             // 
             // buttonKeranjang
             // 
@@ -255,7 +237,6 @@ namespace PROJEKAKHIR
         private Button buttonKeranjang;
         private PictureBox pictureBox2;
         private Button buttonRiwayat;
-        private Button button4;
         private Katalog katalog1;
         private Keranjang keranjang1;
         private RiwayatTransaksi riwayatTransaksi1;

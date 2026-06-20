@@ -14,5 +14,10 @@ namespace PROJEKAKHIR
         {
             InitializeComponent();
         }
+
+        private void lblAlamat_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

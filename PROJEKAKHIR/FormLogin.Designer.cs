@@ -58,7 +58,7 @@
             // 
             lblSubjudul.AutoSize = true;
             lblSubjudul.Font = new Font("Segoe UI", 9F, FontStyle.Italic);
-            lblSubjudul.ForeColor = Color.FromArgb(180, 210, 255);
+            lblSubjudul.ForeColor = Color.White;
             lblSubjudul.Location = new Point(108, 58);
             lblSubjudul.Name = "lblSubjudul";
             lblSubjudul.Size = new Size(158, 20);
@@ -67,7 +67,7 @@
             // 
             // pnlHeader
             // 
-            pnlHeader.BackColor = Color.FromArgb(26, 53, 117);
+            pnlHeader.BackColor = Color.DarkGreen;
             pnlHeader.Controls.Add(lblSubjudul);
             pnlHeader.Controls.Add(lblJudul);
             pnlHeader.Dock = DockStyle.Top;
@@ -128,12 +128,6 @@
             chkTampilPassword.Text = "Tampilkan password";
             chkTampilPassword.CheckedChanged += chkTampilPassword_CheckedChanged;
             // 
-            // lblRole
-            // 
- 
-            // cmbRole
-            //
-            // 
             // lblPesan
             // 
             lblPesan.AutoSize = true;
@@ -146,7 +140,7 @@
             // 
             // btnLogin
             // 
-            btnLogin.BackColor = Color.FromArgb(30, 74, 153);
+            btnLogin.BackColor = Color.DarkGreen;
             btnLogin.FlatAppearance.BorderSize = 0;
             btnLogin.FlatStyle = FlatStyle.Flat;
             btnLogin.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
@@ -188,8 +182,9 @@
             guna2HtmlLabel1.BackColor = Color.Transparent;
             guna2HtmlLabel1.Location = new Point(106, 376);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(3, 2);
+            guna2HtmlLabel1.Size = new Size(0, 0);
             guna2HtmlLabel1.TabIndex = 12;
+            guna2HtmlLabel1.Text = null;
             // 
             // linkLabel1
             // 
@@ -220,7 +215,7 @@
             Controls.Add(btnLogin);
             Controls.Add(btnBatal);
             Font = new Font("Segoe UI", 9F);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.None;
             MaximizeBox = false;
             Name = "FormLogin";
             StartPosition = FormStartPosition.CenterScreen;
