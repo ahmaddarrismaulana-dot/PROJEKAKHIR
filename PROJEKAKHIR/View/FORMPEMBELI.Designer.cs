@@ -91,6 +91,7 @@ namespace PROJEKAKHIR
             buttonCheckout.Text = "   Checkout";
             buttonCheckout.TextImageRelation = TextImageRelation.ImageBeforeText;
             buttonCheckout.UseVisualStyleBackColor = true;
+            buttonCheckout.Click += buttonCheckout_Click;
             // 
             // pictureBox2
             // 

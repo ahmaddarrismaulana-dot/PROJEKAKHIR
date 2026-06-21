@@ -19,10 +19,10 @@ namespace PROJEKAKHIR
 
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             lblInfoTitle = new Label();
             lblRingkasan = new Label();
             dgvPesanan = new DataGridView();
@@ -55,11 +55,9 @@ namespace PROJEKAKHIR
             lblAlamat = new Label();
             txtAlamat = new RichTextBox();
             flowLayoutPanel1 = new FlowLayoutPanel();
-            lblTransaksi = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvPesanan).BeginInit();
             pnlUpload.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picUploadIcon).BeginInit();
-            flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // lblInfoTitle
@@ -90,24 +88,24 @@ namespace PROJEKAKHIR
             dgvPesanan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvPesanan.BackgroundColor = Color.White;
             dgvPesanan.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = Color.LightGray;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            dataGridViewCellStyle5.ForeColor = Color.FromArgb(60, 60, 60);
-            dataGridViewCellStyle5.SelectionBackColor = Color.White;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            dgvPesanan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.LightGray;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = Color.FromArgb(60, 60, 60);
+            dataGridViewCellStyle1.SelectionBackColor = Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvPesanan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvPesanan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvPesanan.Columns.AddRange(new DataGridViewColumn[] { colProduk, colJumlah, colSubtotal });
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = SystemColors.Window;
-            dataGridViewCellStyle8.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle8.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = Color.White;
-            dataGridViewCellStyle8.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            dgvPesanan.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Window;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            dgvPesanan.DefaultCellStyle = dataGridViewCellStyle4;
             dgvPesanan.EnableHeadersVisualStyles = false;
             dgvPesanan.GridColor = Color.FromArgb(220, 220, 220);
             dgvPesanan.Location = new Point(495, 114);
@@ -125,8 +123,8 @@ namespace PROJEKAKHIR
             // 
             // colProduk
             // 
-            dataGridViewCellStyle6.BackColor = Color.White;
-            colProduk.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            colProduk.DefaultCellStyle = dataGridViewCellStyle2;
             colProduk.FillWeight = 220F;
             colProduk.HeaderText = "Produk";
             colProduk.MinimumWidth = 6;
@@ -135,8 +133,8 @@ namespace PROJEKAKHIR
             // 
             // colJumlah
             // 
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            colJumlah.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            colJumlah.DefaultCellStyle = dataGridViewCellStyle3;
             colJumlah.FillWeight = 80F;
             colJumlah.HeaderText = "Jumlah";
             colJumlah.MinimumWidth = 6;
@@ -452,24 +450,11 @@ namespace PROJEKAKHIR
             // 
             // flowLayoutPanel1
             // 
-            flowLayoutPanel1.Controls.Add(lblTransaksi);
+            flowLayoutPanel1.AutoScroll = true;
             flowLayoutPanel1.Location = new Point(14, 55);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(462, 735);
             flowLayoutPanel1.TabIndex = 32;
-            // 
-            // lblTransaksi
-            // 
-            lblTransaksi.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            lblTransaksi.AutoSize = true;
-            lblTransaksi.Font = new Font("Arial Narrow", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTransaksi.ForeColor = Color.Black;
-            lblTransaksi.Location = new Point(3, 0);
-            lblTransaksi.Name = "lblTransaksi";
-            lblTransaksi.Size = new Size(81, 22);
-            lblTransaksi.TabIndex = 33;
-            lblTransaksi.Text = "id transaksi";
-            lblTransaksi.Click += lblTransaksi_Click;
             // 
             // Checkout
             // 
@@ -509,8 +494,6 @@ namespace PROJEKAKHIR
             pnlUpload.ResumeLayout(false);
             pnlUpload.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picUploadIcon).EndInit();
-            flowLayoutPanel1.ResumeLayout(false);
-            flowLayoutPanel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -549,6 +532,5 @@ namespace PROJEKAKHIR
         private Label lblAlamat;
         private RichTextBox txtAlamat;
         private FlowLayoutPanel flowLayoutPanel1;
-        private Label lblTransaksi;
     }
 }

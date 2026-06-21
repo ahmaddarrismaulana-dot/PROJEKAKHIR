@@ -42,7 +42,7 @@ namespace PROJEKAKHIR
 
         private void button2_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -126,6 +126,11 @@ namespace PROJEKAKHIR
                 login.Show();
                 this.Close();
             }
+        }
+
+        private void buttonCheckout_Click(object sender, EventArgs e)
+        {
+            ShowPanel(checkout1, buttonCheckout);
         }
     }
 }
