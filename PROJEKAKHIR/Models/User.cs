@@ -69,13 +69,7 @@
             _email = email;
             _role = role;
         }
-
-        // --- Abstract method (wajib di-override tiap turunan) ---
-        // Menerapkan konsep: Abstract Method
         public abstract string GetDashboardTitle();
-
-        // --- Virtual method (bisa di-override) ---
-        // Menerapkan konsep: Overriding
         public virtual string GetInfo()
         {
             return $"[{_role}] {_nama} — {_email}";

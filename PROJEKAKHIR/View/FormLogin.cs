@@ -102,7 +102,7 @@ namespace BibitKu.Views
 
         private void linkLabel1_LinkClicked(object sender,LinkLabelLinkClickedEventArgs e)
         {
-            Formauth auth = new Formauth();
+            RegisterControll auth = new RegisterControll();
 
             this.Hide();
 

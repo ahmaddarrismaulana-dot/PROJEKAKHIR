@@ -419,9 +419,5 @@ namespace PROJEKAKHIR
         {
             LoadData();
         }
-        public void kelasujicoba()
-        {
-            LoadData();
-        }
     }
 }

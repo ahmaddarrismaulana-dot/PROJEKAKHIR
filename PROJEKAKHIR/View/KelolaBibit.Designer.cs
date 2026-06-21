@@ -44,6 +44,10 @@
             colHarga = new DataGridViewTextBoxColumn();
             colStok = new DataGridViewTextBoxColumn();
             colAksi = new DataGridViewButtonColumn();
+            colEdit = new DataGridViewButtonColumn();
+            colEdit.Name = "colEdit";
+            colEdit.HeaderText = "Edit";
+             // biru
             label1 = new Label();
             numHarga = new NumericUpDown();
             numStok = new NumericUpDown();
@@ -304,7 +308,7 @@
             dgvBibit.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvBibit.Size = new Size(983, 240);
             dgvBibit.TabIndex = 25;
-            dgvBibit.CellContentClick += dgvBibit_CellContentClick;
+            dgvBibit.CellContentClick += dgvBibit_CellContentClick_1;
             // 
             // colIdBibit
             // 
@@ -362,6 +366,15 @@
             colAksi.ReadOnly = true;
             colAksi.Text = "Hapus";
             colAksi.UseColumnTextForButtonValue = true;
+            ///colAksi
+            colEdit.Text = "Edit";
+            colEdit.UseColumnTextForButtonValue = true;
+            colEdit.FlatStyle = FlatStyle.Flat;
+            colEdit.FillWeight = 60F;
+            colEdit.MinimumWidth = 60;
+            colEdit.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            colEdit.DefaultCellStyle.BackColor = Color.White;
+            colEdit.DefaultCellStyle.ForeColor = Color.FromArgb(25, 118, 210);
             // 
             // label1
             // 
@@ -475,5 +488,6 @@
         private NumericUpDown numHarga;
         private NumericUpDown numStok;
         private TextBox textUmurBibit;
+        private DataGridViewButtonColumn colEdit;
     }
 }

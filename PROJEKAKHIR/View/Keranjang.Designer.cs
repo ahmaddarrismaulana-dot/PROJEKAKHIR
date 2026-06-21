@@ -17,16 +17,16 @@
 
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle20 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle16 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle17 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle18 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle19 = new DataGridViewCellStyle();
             lblTitle = new Label();
             dgvKeranjang = new DataGridView();
             colNo = new DataGridViewTextBoxColumn();
@@ -66,27 +66,27 @@
             dgvKeranjang.BorderStyle = BorderStyle.None;
             dgvKeranjang.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvKeranjang.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(34, 139, 34);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.Padding = new Padding(10, 0, 0, 0);
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvKeranjang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = Color.FromArgb(34, 139, 34);
+            dataGridViewCellStyle11.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            dataGridViewCellStyle11.ForeColor = Color.White;
+            dataGridViewCellStyle11.Padding = new Padding(10, 0, 0, 0);
+            dataGridViewCellStyle11.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.True;
+            dgvKeranjang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             dgvKeranjang.ColumnHeadersHeight = 42;
             dgvKeranjang.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvKeranjang.Columns.AddRange(new DataGridViewColumn[] { colNo, colProduk, colHarga, colKurang, colJumlah, colTambah, colSubtotal, colHapus });
-            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = SystemColors.Window;
-            dataGridViewCellStyle10.Font = new Font("Segoe UI", 9.75F);
-            dataGridViewCellStyle10.ForeColor = Color.FromArgb(51, 51, 51);
-            dataGridViewCellStyle10.Padding = new Padding(10, 0, 0, 0);
-            dataGridViewCellStyle10.SelectionBackColor = Color.FromArgb(232, 245, 233);
-            dataGridViewCellStyle10.SelectionForeColor = Color.FromArgb(51, 51, 51);
-            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.False;
-            dgvKeranjang.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle20.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = SystemColors.Window;
+            dataGridViewCellStyle20.Font = new Font("Segoe UI", 9.75F);
+            dataGridViewCellStyle20.ForeColor = Color.FromArgb(51, 51, 51);
+            dataGridViewCellStyle20.Padding = new Padding(10, 0, 0, 0);
+            dataGridViewCellStyle20.SelectionBackColor = Color.FromArgb(232, 245, 233);
+            dataGridViewCellStyle20.SelectionForeColor = Color.FromArgb(51, 51, 51);
+            dataGridViewCellStyle20.WrapMode = DataGridViewTriState.False;
+            dgvKeranjang.DefaultCellStyle = dataGridViewCellStyle20;
             dgvKeranjang.EnableHeadersVisualStyles = false;
             dgvKeranjang.GridColor = Color.White;
             dgvKeranjang.Location = new Point(29, 93);
@@ -103,9 +103,9 @@
             // 
             // colNo
             // 
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = Color.White;
-            colNo.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = Color.White;
+            colNo.DefaultCellStyle = dataGridViewCellStyle12;
             colNo.FillWeight = 6F;
             colNo.HeaderText = "No.";
             colNo.MinimumWidth = 50;
@@ -113,8 +113,8 @@
             // 
             // colProduk
             // 
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            colProduk.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle13.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            colProduk.DefaultCellStyle = dataGridViewCellStyle13;
             colProduk.FillWeight = 28F;
             colProduk.HeaderText = "Produk";
             colProduk.MinimumWidth = 6;
@@ -122,8 +122,8 @@
             // 
             // colHarga
             // 
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            colHarga.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle14.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            colHarga.DefaultCellStyle = dataGridViewCellStyle14;
             colHarga.FillWeight = 14F;
             colHarga.HeaderText = "Harga";
             colHarga.MinimumWidth = 6;
@@ -131,9 +131,9 @@
             // 
             // colKurang
             // 
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            colKurang.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle15.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            colKurang.DefaultCellStyle = dataGridViewCellStyle15;
             colKurang.FillWeight = 5F;
             colKurang.FlatStyle = FlatStyle.Flat;
             colKurang.HeaderText = "";
@@ -144,8 +144,8 @@
             // 
             // colJumlah
             // 
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            colJumlah.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle16.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            colJumlah.DefaultCellStyle = dataGridViewCellStyle16;
             colJumlah.FillWeight = 7F;
             colJumlah.HeaderText = "Jumlah";
             colJumlah.MinimumWidth = 60;
@@ -153,9 +153,9 @@
             // 
             // colTambah
             // 
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            colTambah.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle17.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            colTambah.DefaultCellStyle = dataGridViewCellStyle17;
             colTambah.FillWeight = 5F;
             colTambah.FlatStyle = FlatStyle.Flat;
             colTambah.HeaderText = "";
@@ -166,8 +166,8 @@
             // 
             // colSubtotal
             // 
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            colSubtotal.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle18.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            colSubtotal.DefaultCellStyle = dataGridViewCellStyle18;
             colSubtotal.FillWeight = 14F;
             colSubtotal.HeaderText = "Subtotal";
             colSubtotal.MinimumWidth = 6;
@@ -175,9 +175,9 @@
             // 
             // colHapus
             // 
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.ForeColor = Color.FromArgb(211, 47, 47);
-            colHapus.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle19.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle19.ForeColor = Color.FromArgb(211, 47, 47);
+            colHapus.DefaultCellStyle = dataGridViewCellStyle19;
             colHapus.FillWeight = 11F;
             colHapus.FlatStyle = FlatStyle.Flat;
             colHapus.HeaderText = "Hapus";
@@ -226,6 +226,7 @@
             btnCheckout.TabIndex = 4;
             btnCheckout.Text = "Checkout";
             btnCheckout.UseVisualStyleBackColor = false;
+            btnCheckout.Click += btnCheckout_Click;
             // 
             // Keranjang
             // 

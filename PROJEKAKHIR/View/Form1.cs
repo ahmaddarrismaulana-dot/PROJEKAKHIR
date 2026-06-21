@@ -1,5 +1,6 @@
 ﻿using BibitKu.Helpers;
 using BibitKu.Models;
+using BibitKu.Views;
 namespace PROJEKAKHIR
 {
     public partial class Form1 : Form
@@ -71,6 +72,32 @@ namespace PROJEKAKHIR
         private void kelolaBibit1_Load_1(object sender, EventArgs e) { }
 
         private void SidePanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            {
+                var konfirmasi = MessageBox.Show(
+                    "Yakin ingin logout?",
+                    "Logout",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (konfirmasi == DialogResult.Yes)
+                {
+                    Session.Logout();
+
+                    var login = new FormLogin();
+                    login.Show();
+                    this.Close();
+                }
+            }
+        }
+
+        private void kelolaBibit2_Load(object sender, EventArgs e)
         {
 
         }

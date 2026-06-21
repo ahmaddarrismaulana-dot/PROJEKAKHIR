@@ -1,16 +1,10 @@
-﻿namespace PROJEKAKHIR
+﻿
+namespace PROJEKAKHIR
 {
-    partial class Form1
+    partial class FormPembeli
     {
-        /// <summary>
-        ///  Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        ///  Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,25 +16,25 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPembeli));
             panel1 = new Panel();
+            button2 = new Button();
+            buttonCheckout = new Button();
             pictureBox2 = new PictureBox();
             label2 = new Label();
             label1 = new Label();
             pictureBox1 = new PictureBox();
             SidePanel = new Panel();
             button3 = new Button();
-            button2 = new Button();
+            buttonRiwayat = new Button();
+            buttonKeranjang = new Button();
             button1 = new Button();
-            kelolaBibit2 = new KelolaBibit();
-            manajemenStok1 = new ManajemenStok();
-            transaksiMasuk1 = new TransaksiMasuk();
+            katalog1 = new Katalog();
+            keranjang1 = new Keranjang();
+            riwayatTransaksi1 = new RiwayatTransaksi();
+            checkout1 = new Checkout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -50,13 +44,16 @@
             // 
             panel1.BackColor = Color.DarkGreen;
             panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
+            panel1.Controls.Add(button2);
+            panel1.Controls.Add(buttonCheckout);
             panel1.Controls.Add(pictureBox2);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(SidePanel);
             panel1.Controls.Add(button3);
-            panel1.Controls.Add(button2);
+            panel1.Controls.Add(buttonRiwayat);
+            panel1.Controls.Add(buttonKeranjang);
             panel1.Controls.Add(button1);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
@@ -64,6 +61,36 @@
             panel1.Size = new Size(249, 742);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.Red;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = FlatStyle.Popup;
+            button2.ForeColor = Color.Transparent;
+            button2.Location = new Point(60, 676);
+            button2.Name = "button2";
+            button2.Size = new Size(116, 45);
+            button2.TabIndex = 6;
+            button2.Text = "LOGOUT";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click_1;
+            // 
+            // buttonCheckout
+            // 
+            buttonCheckout.FlatAppearance.BorderSize = 0;
+            buttonCheckout.FlatStyle = FlatStyle.Flat;
+            buttonCheckout.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buttonCheckout.ForeColor = Color.White;
+            buttonCheckout.Image = (Image)resources.GetObject("buttonCheckout.Image");
+            buttonCheckout.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonCheckout.Location = new Point(10, 282);
+            buttonCheckout.Name = "buttonCheckout";
+            buttonCheckout.Size = new Size(237, 58);
+            buttonCheckout.TabIndex = 5;
+            buttonCheckout.Text = "   Checkout";
+            buttonCheckout.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonCheckout.UseVisualStyleBackColor = true;
             // 
             // pictureBox2
             // 
@@ -117,7 +144,6 @@
             SidePanel.Name = "SidePanel";
             SidePanel.Size = new Size(10, 58);
             SidePanel.TabIndex = 2;
-            SidePanel.Paint += SidePanel_Paint;
             // 
             // button3
             // 
@@ -125,33 +151,48 @@
             button3.FlatStyle = FlatStyle.Flat;
             button3.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button3.ForeColor = Color.White;
-            button3.Image = (Image)resources.GetObject("button3.Image");
             button3.ImageAlign = ContentAlignment.MiddleLeft;
-            button3.Location = new Point(12, 282);
+            button3.Location = new Point(12, 748);
             button3.Name = "button3";
             button3.Size = new Size(237, 58);
             button3.TabIndex = 2;
-            button3.Text = "   Transaksi Masuk";
+            button3.Text = "   Checkout";
             button3.TextImageRelation = TextImageRelation.ImageBeforeText;
             button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
             // 
-            // button2
+            // buttonRiwayat
             // 
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button2.ForeColor = Color.White;
-            button2.Image = (Image)resources.GetObject("button2.Image");
-            button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(12, 218);
-            button2.Name = "button2";
-            button2.Size = new Size(237, 58);
-            button2.TabIndex = 2;
-            button2.Text = "   Manajemen Stok";
-            button2.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            buttonRiwayat.FlatAppearance.BorderSize = 0;
+            buttonRiwayat.FlatStyle = FlatStyle.Flat;
+            buttonRiwayat.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buttonRiwayat.ForeColor = Color.White;
+            buttonRiwayat.Image = (Image)resources.GetObject("buttonRiwayat.Image");
+            buttonRiwayat.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonRiwayat.Location = new Point(12, 347);
+            buttonRiwayat.Name = "buttonRiwayat";
+            buttonRiwayat.Size = new Size(237, 58);
+            buttonRiwayat.TabIndex = 2;
+            buttonRiwayat.Text = "   RIwayat Transaksi";
+            buttonRiwayat.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonRiwayat.UseVisualStyleBackColor = true;
+            buttonRiwayat.Click += buttonRiwayat_Click_1;
+            // 
+            // buttonKeranjang
+            // 
+            buttonKeranjang.FlatAppearance.BorderSize = 0;
+            buttonKeranjang.FlatStyle = FlatStyle.Flat;
+            buttonKeranjang.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buttonKeranjang.ForeColor = Color.White;
+            buttonKeranjang.Image = (Image)resources.GetObject("buttonKeranjang.Image");
+            buttonKeranjang.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonKeranjang.Location = new Point(12, 218);
+            buttonKeranjang.Name = "buttonKeranjang";
+            buttonKeranjang.Size = new Size(237, 58);
+            buttonKeranjang.TabIndex = 2;
+            buttonKeranjang.Text = "   Keranjang";
+            buttonKeranjang.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonKeranjang.UseVisualStyleBackColor = true;
+            buttonKeranjang.Click += buttonKeranjang_Click;
             // 
             // button1
             // 
@@ -165,53 +206,64 @@
             button1.Name = "button1";
             button1.Size = new Size(237, 58);
             button1.TabIndex = 2;
-            button1.Text = "   Kelola Bibit";
+            button1.Text = "   Katalog";
             button1.TextImageRelation = TextImageRelation.ImageBeforeText;
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // kelolaBibit2
+            // katalog1
             // 
-            kelolaBibit2.BackColor = Color.White;
-            kelolaBibit2.Location = new Point(255, 0);
-            kelolaBibit2.Margin = new Padding(3, 4, 3, 4);
-            kelolaBibit2.Name = "kelolaBibit2";
-            kelolaBibit2.Size = new Size(1286, 1066);
-            kelolaBibit2.TabIndex = 1;
+            katalog1.BackColor = Color.White;
+            katalog1.Location = new Point(251, 0);
+            katalog1.Margin = new Padding(3, 4, 3, 4);
+            katalog1.Name = "katalog1";
+            katalog1.Size = new Size(1229, 1034);
+            katalog1.TabIndex = 1;
             // 
-            // manajemenStok1
+            // keranjang1
             // 
-            manajemenStok1.BackColor = Color.FromArgb(245, 245, 245);
-            manajemenStok1.Location = new Point(255, 0);
-            manajemenStok1.Margin = new Padding(3, 4, 3, 4);
-            manajemenStok1.Name = "manajemenStok1";
-            manajemenStok1.Size = new Size(1258, 1000);
-            manajemenStok1.TabIndex = 2;
+            keranjang1.BackColor = Color.White;
+            keranjang1.Location = new Point(251, 0);
+            keranjang1.Margin = new Padding(3, 4, 3, 4);
+            keranjang1.Name = "keranjang1";
+            keranjang1.Size = new Size(1182, 1034);
+            keranjang1.TabIndex = 2;
             // 
-            // transaksiMasuk1
+            // riwayatTransaksi1
             // 
-            transaksiMasuk1.BackColor = Color.White;
-            transaksiMasuk1.Location = new Point(255, 0);
-            transaksiMasuk1.Margin = new Padding(3, 4, 3, 4);
-            transaksiMasuk1.Name = "transaksiMasuk1";
-            transaksiMasuk1.Size = new Size(1229, 900);
-            transaksiMasuk1.TabIndex = 3;
+            riwayatTransaksi1.BackColor = Color.White;
+            riwayatTransaksi1.Location = new Point(250, 0);
+            riwayatTransaksi1.Margin = new Padding(3, 4, 3, 4);
+            riwayatTransaksi1.Name = "riwayatTransaksi1";
+            riwayatTransaksi1.Size = new Size(1229, 790);
+            riwayatTransaksi1.TabIndex = 3;
             // 
-            // Form1
+            // checkout1
+            // 
+            checkout1.BackColor = Color.White;
+            checkout1.Location = new Point(251, 3);
+            checkout1.Margin = new Padding(3, 4, 3, 4);
+            checkout1.Name = "checkout1";
+            checkout1.Size = new Size(1418, 1070);
+            checkout1.TabIndex = 6;
+            checkout1.Load += checkout1_Load;
+            // 
+            // FormPembeli
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1415, 742);
-            Controls.Add(transaksiMasuk1);
-            Controls.Add(manajemenStok1);
-            Controls.Add(kelolaBibit2);
+            Controls.Add(checkout1);
+            Controls.Add(riwayatTransaksi1);
+            Controls.Add(keranjang1);
+            Controls.Add(katalog1);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Form1";
+            Name = "FormPembeli";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
-            Load += Form1_Load;
+            Text = "FormPembeli";
+            Load += FormPembeli_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
@@ -228,11 +280,14 @@
         private PictureBox pictureBox1;
         private Label label1;
         private Label label2;
-        private Button button2;
+        private Button buttonKeranjang;
         private PictureBox pictureBox2;
-        private KelolaBibit kelolaBibit1;
-        private KelolaBibit kelolaBibit2;
-        private ManajemenStok manajemenStok1;
-        private TransaksiMasuk transaksiMasuk1;
+        private Button buttonRiwayat;
+        private Katalog katalog1;
+        private Keranjang keranjang1;
+        private RiwayatTransaksi riwayatTransaksi1;
+        private Button buttonCheckout;
+        private Checkout checkout1;
+        private Button button2;
     }
 }

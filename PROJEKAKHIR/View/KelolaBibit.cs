@@ -246,15 +246,26 @@ namespace PROJEKAKHIR
         private void picBibit_Click(object sender, EventArgs e) { }
         private void txtIdBibit_TextChanged(object sender, EventArgs e) { }
 
+       
+
+        private void dgvBibit_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
         private void dgvBibit_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 &&
-                dgvBibit.Columns[e.ColumnIndex].Name == "colAksi")
-            {
-                int idBibit = Convert.ToInt32(
-                    dgvBibit.Rows[e.RowIndex].Cells["colIdBibit"].Value);
+            if (e.RowIndex < 0) return;
 
-                DialogResult hasil = MessageBox.Show(
+            int idBibit = Convert.ToInt32(
+                dgvBibit.Rows[e.RowIndex].Cells["colIdBibit"].Value);
+
+            // =====================
+            // HAPUS
+            // =====================
+            if (dgvBibit.Columns[e.ColumnIndex].Name == "colAksi")
+            {
+                var hasil = MessageBox.Show(
                     "Yakin ingin menghapus data ini?",
                     "Konfirmasi",
                     MessageBoxButtons.YesNo,
@@ -265,27 +276,53 @@ namespace PROJEKAKHIR
                     try
                     {
                         bool berhasil = controller.HapusBibit(idBibit);
-
                         if (berhasil)
                         {
-                            MessageBox.Show(
-                                "Data berhasil dihapus",
-                                "Sukses",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Information);
-
+                            MessageBox.Show("Data berhasil dihapus", "Sukses",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
                             LoadDataBibit();
                         }
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(
-                            ex.Message,
-                            "Tidak Bisa Menghapus",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Warning);
+                        MessageBox.Show(ex.Message, "Tidak Bisa Menghapus",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
+            }
+
+            // =====================
+            // EDIT
+            // =====================
+            else if (dgvBibit.Columns[e.ColumnIndex].Name == "colEdit")
+            {
+                // Ambil data bibit lengkap berdasarkan id
+                var semuaBibit = controller.GetAllBibit();
+                var bibitDipilih = semuaBibit.Find(b => b.id_bibit == idBibit);
+
+                if (bibitDipilih == null)
+                {
+                    MessageBox.Show("Data bibit tidak ditemukan.");
+                    return;
+                }
+
+                // Tampilkan UserControl editdatabiibit
+                var editForm = new editdatabiibit();
+                editForm.MuatDataBibit(bibitDipilih);
+
+                // Tambahkan ke parent (Form1) dan tampilkan
+                this.Parent.Controls.Add(editForm);
+                editForm.Dock = DockStyle.Fill;
+                editForm.BringToFront();
+
+                // Saat edit selesai, kembali ke KelolaBibit dan refresh data
+                editForm.EditSelesai += (s, ev) =>
+                {
+                    this.Parent.Controls.Remove(editForm);
+                    editForm.Dispose();
+                    this.BringToFront();
+                    LoadDataBibit(); // refresh tabel
+                };
             }
         }
     }

@@ -14,8 +14,15 @@ namespace PROJEKAKHIR
         public RegisterControll()
         {
             InitializeComponent();
+            registerControl1.KembaliKeLogin +=
+              RegisterControl1_KembaliKeLogin;
         }
-
+        private void RegisterControl1_KembaliKeLogin(
+            object sender,
+            EventArgs e)
+        {
+            this.Close();
+        }
         private void guna2Button1_Click(
             object sender,
             EventArgs e)
@@ -114,6 +121,11 @@ namespace PROJEKAKHIR
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void registerControl1_Load(object sender, EventArgs e)
         {
 
         }

@@ -52,6 +52,7 @@
             linkLabel1 = new LinkLabel();
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
+            registerControl1 = new RegisterControl();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -245,12 +246,22 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
+            // registerControl1
+            // 
+            registerControl1.BackColor = Color.White;
+            registerControl1.Location = new Point(766, 22);
+            registerControl1.Name = "registerControl1";
+            registerControl1.Size = new Size(619, 656);
+            registerControl1.TabIndex = 12;
+            registerControl1.Load += registerControl1_Load;
+            // 
             // RegisterControll
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1415, 742);
+            Controls.Add(registerControl1);
             Controls.Add(panel1);
             Controls.Add(linkLabel1);
             Controls.Add(label2);
@@ -281,5 +292,6 @@
         private LinkLabel linkLabel1;
         private Panel panel1;
         private PictureBox pictureBox1;
+        private RegisterControl registerControl1;
     }
 }

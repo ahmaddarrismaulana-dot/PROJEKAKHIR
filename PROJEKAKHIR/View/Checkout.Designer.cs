@@ -19,10 +19,10 @@ namespace PROJEKAKHIR
 
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
             lblInfoTitle = new Label();
             lblRingkasan = new Label();
             dgvPesanan = new DataGridView();
@@ -34,7 +34,6 @@ namespace PROJEKAKHIR
             lblTotalVal = new Label();
             btnLanjut = new Button();
             lblIDTransaksi = new Label();
-            txtIDTransaksi = new TextBox();
             lblTotalBayar = new Label();
             txtTotalBayar = new TextBox();
             lblNama = new Label();
@@ -56,9 +55,11 @@ namespace PROJEKAKHIR
             lblAlamat = new Label();
             txtAlamat = new RichTextBox();
             flowLayoutPanel1 = new FlowLayoutPanel();
+            lblTransaksi = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvPesanan).BeginInit();
             pnlUpload.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picUploadIcon).BeginInit();
+            flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // lblInfoTitle
@@ -89,24 +90,24 @@ namespace PROJEKAKHIR
             dgvPesanan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvPesanan.BackgroundColor = Color.White;
             dgvPesanan.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = Color.LightGray;
-            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            dataGridViewCellStyle9.ForeColor = Color.FromArgb(60, 60, 60);
-            dataGridViewCellStyle9.SelectionBackColor = Color.White;
-            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
-            dgvPesanan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = Color.LightGray;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            dataGridViewCellStyle5.ForeColor = Color.FromArgb(60, 60, 60);
+            dataGridViewCellStyle5.SelectionBackColor = Color.White;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dgvPesanan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dgvPesanan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvPesanan.Columns.AddRange(new DataGridViewColumn[] { colProduk, colJumlah, colSubtotal });
-            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = SystemColors.Window;
-            dataGridViewCellStyle12.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle12.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle12.SelectionBackColor = Color.White;
-            dataGridViewCellStyle12.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle12.WrapMode = DataGridViewTriState.False;
-            dgvPesanan.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = SystemColors.Window;
+            dataGridViewCellStyle8.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle8.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = Color.White;
+            dataGridViewCellStyle8.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            dgvPesanan.DefaultCellStyle = dataGridViewCellStyle8;
             dgvPesanan.EnableHeadersVisualStyles = false;
             dgvPesanan.GridColor = Color.FromArgb(220, 220, 220);
             dgvPesanan.Location = new Point(495, 114);
@@ -120,11 +121,12 @@ namespace PROJEKAKHIR
             dgvPesanan.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvPesanan.Size = new Size(560, 400);
             dgvPesanan.TabIndex = 8;
+            dgvPesanan.CellContentClick += dgvPesanan_CellContentClick;
             // 
             // colProduk
             // 
-            dataGridViewCellStyle10.BackColor = Color.White;
-            colProduk.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle6.BackColor = Color.White;
+            colProduk.DefaultCellStyle = dataGridViewCellStyle6;
             colProduk.FillWeight = 220F;
             colProduk.HeaderText = "Produk";
             colProduk.MinimumWidth = 6;
@@ -133,8 +135,8 @@ namespace PROJEKAKHIR
             // 
             // colJumlah
             // 
-            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            colJumlah.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            colJumlah.DefaultCellStyle = dataGridViewCellStyle7;
             colJumlah.FillWeight = 80F;
             colJumlah.HeaderText = "Jumlah";
             colJumlah.MinimumWidth = 6;
@@ -193,6 +195,7 @@ namespace PROJEKAKHIR
             btnLanjut.TabIndex = 12;
             btnLanjut.Text = "Checkout";
             btnLanjut.UseVisualStyleBackColor = false;
+            btnLanjut.Click += btnLanjut_Click;
             // 
             // lblIDTransaksi
             // 
@@ -204,20 +207,6 @@ namespace PROJEKAKHIR
             lblIDTransaksi.Size = new Size(87, 20);
             lblIDTransaksi.TabIndex = 14;
             lblIDTransaksi.Text = "ID Transaksi";
-            // 
-            // txtIDTransaksi
-            // 
-            txtIDTransaksi.BackColor = Color.FromArgb(245, 245, 245);
-            txtIDTransaksi.BorderStyle = BorderStyle.None;
-            txtIDTransaksi.Font = new Font("Segoe UI", 9F);
-            txtIDTransaksi.ForeColor = Color.FromArgb(30, 30, 30);
-            txtIDTransaksi.Location = new Point(194, 117);
-            txtIDTransaksi.Margin = new Padding(3, 4, 3, 4);
-            txtIDTransaksi.Name = "txtIDTransaksi";
-            txtIDTransaksi.ReadOnly = true;
-            txtIDTransaksi.Size = new Size(274, 20);
-            txtIDTransaksi.TabIndex = 15;
-            txtIDTransaksi.Text = "TRX-0088";
             // 
             // lblTotalBayar
             // 
@@ -243,6 +232,7 @@ namespace PROJEKAKHIR
             txtTotalBayar.Size = new Size(274, 20);
             txtTotalBayar.TabIndex = 17;
             txtTotalBayar.Text = "Rp 128.000";
+            txtTotalBayar.TextChanged += txtTotalBayar_TextChanged;
             // 
             // lblNama
             // 
@@ -290,6 +280,7 @@ namespace PROJEKAKHIR
             cmbMetodePembayaran.Name = "cmbMetodePembayaran";
             cmbMetodePembayaran.Size = new Size(274, 28);
             cmbMetodePembayaran.TabIndex = 21;
+            cmbMetodePembayaran.SelectedIndexChanged += cmbMetodePembayaran_SelectedIndexChanged;
             // 
             // lblBankTujuan
             // 
@@ -312,6 +303,7 @@ namespace PROJEKAKHIR
             cmbBankTujuan.Name = "cmbBankTujuan";
             cmbBankTujuan.Size = new Size(274, 28);
             cmbBankTujuan.TabIndex = 23;
+            cmbBankTujuan.SelectedIndexChanged += cmbBankTujuan_SelectedIndexChanged;
             // 
             // lblDetailPembayaran
             // 
@@ -392,6 +384,7 @@ namespace PROJEKAKHIR
             pnlUpload.Name = "pnlUpload";
             pnlUpload.Size = new Size(424, 119);
             pnlUpload.TabIndex = 29;
+            pnlUpload.Paint += pnlUpload_Paint;
             // 
             // btnPilihGambar
             // 
@@ -407,6 +400,7 @@ namespace PROJEKAKHIR
             btnPilihGambar.TabIndex = 17;
             btnPilihGambar.Text = "Pilih Gambar";
             btnPilihGambar.UseVisualStyleBackColor = false;
+            btnPilihGambar.Click += btnPilihGambar_Click;
             // 
             // picUploadIcon
             // 
@@ -417,6 +411,7 @@ namespace PROJEKAKHIR
             picUploadIcon.SizeMode = PictureBoxSizeMode.Zoom;
             picUploadIcon.TabIndex = 0;
             picUploadIcon.TabStop = false;
+            picUploadIcon.Click += picUploadIcon_Click;
             // 
             // lblUploadFormat
             // 
@@ -428,6 +423,7 @@ namespace PROJEKAKHIR
             lblUploadFormat.Size = new Size(199, 19);
             lblUploadFormat.TabIndex = 2;
             lblUploadFormat.Text = "Format: JPG, PNG (Maks. 2MB)";
+            lblUploadFormat.Click += lblUploadFormat_Click;
             // 
             // lblAlamat
             // 
@@ -452,14 +448,28 @@ namespace PROJEKAKHIR
             txtAlamat.Size = new Size(274, 111);
             txtAlamat.TabIndex = 31;
             txtAlamat.Text = "";
-            txtAlamat.TextChanged += this.txtAlamat_TextChanged;
+            txtAlamat.TextChanged += txtAlamat_TextChanged;
             // 
             // flowLayoutPanel1
             // 
+            flowLayoutPanel1.Controls.Add(lblTransaksi);
             flowLayoutPanel1.Location = new Point(14, 55);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(462, 735);
             flowLayoutPanel1.TabIndex = 32;
+            // 
+            // lblTransaksi
+            // 
+            lblTransaksi.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lblTransaksi.AutoSize = true;
+            lblTransaksi.Font = new Font("Arial Narrow", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTransaksi.ForeColor = Color.Black;
+            lblTransaksi.Location = new Point(3, 0);
+            lblTransaksi.Name = "lblTransaksi";
+            lblTransaksi.Size = new Size(81, 22);
+            lblTransaksi.TabIndex = 33;
+            lblTransaksi.Text = "id transaksi";
+            lblTransaksi.Click += lblTransaksi_Click;
             // 
             // Checkout
             // 
@@ -476,7 +486,6 @@ namespace PROJEKAKHIR
             Controls.Add(pnlUpload);
             Controls.Add(lblDetailPembayaran);
             Controls.Add(lblIDTransaksi);
-            Controls.Add(txtIDTransaksi);
             Controls.Add(lblTotalBayar);
             Controls.Add(txtTotalBayar);
             Controls.Add(lblNama);
@@ -500,6 +509,8 @@ namespace PROJEKAKHIR
             pnlUpload.ResumeLayout(false);
             pnlUpload.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picUploadIcon).EndInit();
+            flowLayoutPanel1.ResumeLayout(false);
+            flowLayoutPanel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -517,7 +528,6 @@ namespace PROJEKAKHIR
         private DataGridViewTextBoxColumn colJumlah;
         private DataGridViewTextBoxColumn colSubtotal;
         private Label lblIDTransaksi;
-        private TextBox txtIDTransaksi;
         private Label lblTotalBayar;
         private TextBox txtTotalBayar;
         private Label lblNama;
@@ -539,5 +549,6 @@ namespace PROJEKAKHIR
         private Label lblAlamat;
         private RichTextBox txtAlamat;
         private FlowLayoutPanel flowLayoutPanel1;
+        private Label lblTransaksi;
     }
 }
