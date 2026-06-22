@@ -1,17 +1,59 @@
 ﻿using System;
 using Npgsql;
 using BibitKu.Helpers;
+using BibitKu.Models;
 
 namespace BibitKu.Controllers
 {
     public class RegisterController
     {
-        public string RegisterPembeli(
-            string nama,
-            string email,
-            string password,
-            string noTelpon,
-            string alamat)
+        /// <summary>
+        /// Memvalidasi data Pembeli sebelum didaftarkan.
+        /// Mengembalikan pesan error jika tidak valid, null jika valid.
+        /// </summary>
+        public string ValidasiInput(Pembeli pembeli)
+        {
+            if (pembeli == null)
+                return "Data registrasi tidak boleh kosong.";
+
+            if (string.IsNullOrWhiteSpace(pembeli.Nama))
+                return "Nama tidak boleh kosong.";
+
+            if (pembeli.Nama.Length < 3)
+                return "Nama minimal 3 karakter.";
+
+            if (string.IsNullOrWhiteSpace(pembeli.Email))
+                return "Email tidak boleh kosong.";
+
+            if (!pembeli.Email.Contains("@") || !pembeli.Email.Contains("."))
+                return "Format email tidak valid.";
+
+            if (string.IsNullOrWhiteSpace(pembeli.Password))
+                return "Password tidak boleh kosong.";
+
+            if (pembeli.Password.Length < 6)
+                return "Password minimal 6 karakter.";
+
+            if (string.IsNullOrWhiteSpace(pembeli.NoTelpon))
+                return "Nomor telepon tidak boleh kosong.";
+
+            if (!long.TryParse(pembeli.NoTelpon, out _))
+                return "Nomor telepon hanya boleh berisi angka.";
+
+            if (pembeli.NoTelpon.Length < 10)
+                return "Nomor telepon minimal 10 digit.";
+
+            if (string.IsNullOrWhiteSpace(pembeli.Alamat))
+                return "Alamat tidak boleh kosong.";
+
+            return null; // semua valid
+        }
+
+        /// <summary>
+        /// Mendaftarkan Pembeli baru ke database.
+        /// Mengembalikan "SUCCESS" jika berhasil, atau pesan error jika gagal.
+        /// </summary>
+        public string RegisterPembeli(Pembeli pembeli)
         {
             try
             {
@@ -19,101 +61,56 @@ namespace BibitKu.Controllers
                 {
                     conn.Open();
 
-                    // cek email sudah ada atau belum
-                    string cekEmail = @"
-                        SELECT COUNT(*)
-                        FROM ""User""
-                        WHERE email = @email";
+                    if (EmailSudahTerdaftar(conn, pembeli.Email))
+                        return "Email sudah digunakan.";
 
-                    using (var cmd = new NpgsqlCommand(cekEmail, conn))
-                    {
-                        cmd.Parameters.AddWithValue("email", email);
-
-                        int jumlah =
-                            Convert.ToInt32(cmd.ExecuteScalar());
-
-                        if (jumlah > 0)
-                            return "Email sudah digunakan.";
-                    }
-
-                    string query = @"
-                        INSERT INTO ""User""
-                        (
-                            nama,
-                            email,
-                            password,
-                            no_telpon,
-                            alamat,
-                            role
-                        )
-                        VALUES
-                        (
-                            @nama,
-                            @email,
-                            @password,
-                            @no_telpon,
-                            @alamat,
-                            'Pembeli'
-                        )";
-
-                    using (var cmd = new NpgsqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("nama", nama);
-                        cmd.Parameters.AddWithValue("email", email);
-                        cmd.Parameters.AddWithValue("password", password);
-                        cmd.Parameters.AddWithValue("no_telpon", noTelpon);
-                        cmd.Parameters.AddWithValue("alamat", alamat);
-
-                        cmd.ExecuteNonQuery();
-                    }
+                    InsertPembeli(conn, pembeli);
                 }
 
                 return "SUCCESS";
             }
             catch (Exception ex)
             {
-                return ex.Message;
+                return $"Terjadi kesalahan: {ex.Message}";
             }
-
         }
-        public string ValidasiInput(
-            string nama,
-            string email,
-            string password,
-            string noTelpon,
-            string alamat)
+
+        // ----------------------------------------------------------------
+        // Private helpers
+        // ----------------------------------------------------------------
+
+        private bool EmailSudahTerdaftar(NpgsqlConnection conn, string email)
         {
-            if (string.IsNullOrWhiteSpace(nama))
-                return "Nama tidak boleh kosong.";
+            const string sql = @"
+                SELECT COUNT(*)
+                FROM ""User""
+                WHERE email = @email";
 
-            if (nama.Length < 3)
-                return "Nama minimal 3 karakter.";
+            using (var cmd = new NpgsqlCommand(sql, conn))
+            {
+                cmd.Parameters.AddWithValue("email", email);
+                return Convert.ToInt32(cmd.ExecuteScalar()) > 0;
+            }
+        }
 
-            if (string.IsNullOrWhiteSpace(email))
-                return "Email tidak boleh kosong.";
+        private void InsertPembeli(NpgsqlConnection conn, Pembeli pembeli)
+        {
+            const string sql = @"
+                INSERT INTO ""User""
+                    (nama, email, password, no_telpon, alamat, role)
+                VALUES
+                    (@nama, @email, @password, @no_telpon, @alamat, 'Pembeli')";
 
-            if (!email.Contains("@"))
-                return "Format email tidak valid.";
+            using (var cmd = new NpgsqlCommand(sql, conn))
+            {
+                cmd.Parameters.AddWithValue("nama",      pembeli.Nama);
+                cmd.Parameters.AddWithValue("email",     pembeli.Email);
+                cmd.Parameters.AddWithValue("password",  pembeli.Password);
+                cmd.Parameters.AddWithValue("no_telpon", pembeli.NoTelpon);
+                cmd.Parameters.AddWithValue("alamat",    pembeli.Alamat);
 
-            if (string.IsNullOrWhiteSpace(password))
-                return "Password tidak boleh kosong.";
-
-            if (password.Length < 6)
-                return "Password minimal 6 karakter.";
-
-            if (string.IsNullOrWhiteSpace(noTelpon))
-                return "Nomor telepon tidak boleh kosong.";
-
-            if (!long.TryParse(noTelpon, out _))
-                return "Nomor telepon hanya boleh berisi angka.";
-
-            if (noTelpon.Length < 10)
-                return "Nomor telepon minimal 10 digit.";
-
-            if (string.IsNullOrWhiteSpace(alamat))
-                return "Alamat tidak boleh kosong.";
-
-            return null; // valid
+                cmd.ExecuteNonQuery();
+            }
         }
     }
 }

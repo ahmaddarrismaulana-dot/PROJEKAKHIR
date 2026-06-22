@@ -1,13 +1,8 @@
 ﻿namespace BibitKu.Models
 {
-    // ================================================================
-    //  Model: User
-    //  Merepresentasikan tabel "User" di database
-    //  Menerapkan konsep: Enkapsulasi (semua field private, akses via property)
-    // ================================================================
     public abstract class User
     {
-        // --- Fields (private = Enkapsulasi) ---
+        // Fields private Enkapsulasi
         private int _id;
         private string _nama;
         private string _email;
@@ -16,7 +11,7 @@
         private string _alamat;
         private string _role;
 
-        // --- Properties (getter & setter) ---
+        // Properties getter & setter
         public int Id
         {
             get { return _id; }
@@ -59,7 +54,7 @@
             set { _role = value; }
         }
 
-        // --- Constructor ---
+        //Constructor
         public User() { }
 
         public User(int id, string nama, string email, string role)

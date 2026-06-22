@@ -17,7 +17,7 @@ namespace BibitKu.Controllers
 
     public class RiwayatTransaksiController
     {
-        // Ambil semua riwayat transaksi milik pembeli
+        // mengambil semua riwayat transaksi milik pembeli
         public List<RiwayatTransaksiModel> GetRiwayatByUser(
             int idUser,
             string statusFilter = "Semua")
@@ -43,7 +43,7 @@ namespace BibitKu.Controllers
                             ON p.id_transaksi = t.id_transaksi
                         WHERE t.id_user = @id_user";
 
-                    // Filter status
+                    //filter status
                     if (statusFilter != "Semua" && !string.IsNullOrEmpty(statusFilter))
                         query += " AND t.status_pesanan = @status";
 
@@ -99,7 +99,7 @@ namespace BibitKu.Controllers
             return daftar;
         }
 
-        // Ambil detail item per transaksi
+        //mengambil detail item per transaksi
         public List<string> GetDetailTransaksi(int idTransaksi)
         {
             var daftar = new List<string>();

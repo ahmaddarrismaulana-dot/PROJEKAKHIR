@@ -40,6 +40,7 @@
             cmbKategori.Name = "cmbKategori";
             cmbKategori.Size = new Size(205, 28);
             cmbKategori.TabIndex = 1;
+            cmbKategori.SelectedIndexChanged += cmbKategori_SelectedIndexChanged;
             // 
             // cmbHarga
             // 

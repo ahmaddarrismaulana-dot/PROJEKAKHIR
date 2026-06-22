@@ -90,7 +90,6 @@
             guna2TextBox1.ShadowDecoration.CustomizableEdges = customizableEdges2;
             guna2TextBox1.Size = new Size(503, 46);
             guna2TextBox1.TabIndex = 2;
-            guna2TextBox1.TextChanged += guna2TextBox1_TextChanged;
             // 
             // guna2TextBox2
             // 
@@ -113,7 +112,7 @@
             guna2TextBox2.ShadowDecoration.CustomizableEdges = customizableEdges4;
             guna2TextBox2.Size = new Size(503, 48);
             guna2TextBox2.TabIndex = 3;
-            guna2TextBox2.TextChanged += guna2TextBox2_TextChanged;
+
             // 
             // guna2TextBox3
             // 
@@ -136,7 +135,7 @@
             guna2TextBox3.ShadowDecoration.CustomizableEdges = customizableEdges6;
             guna2TextBox3.Size = new Size(503, 47);
             guna2TextBox3.TabIndex = 4;
-            guna2TextBox3.TextChanged += guna2TextBox3_TextChanged;
+
             // 
             // guna2TextBox4
             // 
@@ -159,7 +158,7 @@
             guna2TextBox4.ShadowDecoration.CustomizableEdges = customizableEdges8;
             guna2TextBox4.Size = new Size(503, 51);
             guna2TextBox4.TabIndex = 5;
-            guna2TextBox4.TextChanged += guna2TextBox4_TextChanged;
+  
             // 
             // guna2TextBox5
             // 
@@ -182,7 +181,7 @@
             guna2TextBox5.ShadowDecoration.CustomizableEdges = customizableEdges10;
             guna2TextBox5.Size = new Size(503, 51);
             guna2TextBox5.TabIndex = 6;
-            guna2TextBox5.TextChanged += guna2TextBox5_TextChanged;
+     
             // 
             // btnRegister_Click
             // 
@@ -200,7 +199,7 @@
             btnRegister_Click.Size = new Size(225, 56);
             btnRegister_Click.TabIndex = 7;
             btnRegister_Click.Text = "Register";
-            btnRegister_Click.Click += guna2Button1_Click;
+
             // 
             // label2
             // 

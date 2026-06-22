@@ -1,4 +1,5 @@
 ﻿using BibitKu.Controllers;
+using BibitKu.Models;
 using System;
 using System.Windows.Forms;
 
@@ -6,8 +7,7 @@ namespace PROJEKAKHIR
 {
     public partial class RegisterControl : UserControl
     {
-        private RegisterController controller =
-            new RegisterController();
+        private readonly RegisterController controller = new RegisterController();
 
         public event EventHandler KembaliKeLogin;
 
@@ -16,17 +16,20 @@ namespace PROJEKAKHIR
             InitializeComponent();
         }
 
-        private void guna2Button1_Click(
-            object sender,
-            EventArgs e)
+        private void guna2Button1_Click(object sender, EventArgs e)
         {
-            string nama = guna2TextBox1.Text.Trim();
-            string email = guna2TextBox2.Text.Trim();
-            string password = guna2TextBox3.Text;
-            string noTelpon = guna2TextBox4.Text.Trim();
-            string alamat = guna2TextBox5.Text.Trim();
-            string pesanError = controller.ValidasiInput(nama,email,password,noTelpon,alamat);
+            // Buat objek Pembeli dari input form
+            var pembeli = new Pembeli
+            {
+                Nama = guna2TextBox1.Text.Trim(),
+                Email = guna2TextBox2.Text.Trim(),
+                Password = guna2TextBox3.Text,
+                NoTelpon = guna2TextBox4.Text.Trim(),
+                Alamat = guna2TextBox5.Text.Trim()
+            };
 
+            // Validasi via controller
+            string pesanError = controller.ValidasiInput(pembeli);
             if (pesanError != null)
             {
                 MessageBox.Show(
@@ -34,29 +37,11 @@ namespace PROJEKAKHIR
                     "Validasi",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
-
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(nama) ||
-                string.IsNullOrWhiteSpace(email) ||
-                string.IsNullOrWhiteSpace(password))
-            {
-                MessageBox.Show(
-                    "Nama, email, dan password wajib diisi!",
-                    "Validasi",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                return;
-            }
-
-            string hasil = controller.RegisterPembeli(
-                nama,
-                email,
-                password,
-                noTelpon,
-                alamat);
+            // Proses registrasi
+            string hasil = controller.RegisterPembeli(pembeli);
 
             if (hasil == "SUCCESS")
             {
@@ -66,7 +51,6 @@ namespace PROJEKAKHIR
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
 
-                // Beri tahu Formauth
                 KembaliKeLogin?.Invoke(this, EventArgs.Empty);
             }
             else
@@ -79,38 +63,17 @@ namespace PROJEKAKHIR
             }
         }
 
-        private void linkLabel1_LinkClicked(
-            object sender,
-            LinkLabelLinkClickedEventArgs e)
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             KembaliKeLogin?.Invoke(this, EventArgs.Empty);
         }
-        private void label1_Click(object sender, EventArgs e)
-        {
-        }
 
-        private void guna2TextBox1_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void guna2TextBox2_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void guna2TextBox3_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void guna2TextBox4_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void guna2TextBox5_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-        }
+        private void label1_Click(object sender, EventArgs e) { }
+        private void label2_Click(object sender, EventArgs e) { }
+        private void guna2TextBox1_TextChanged(object sender, EventArgs e) { }
+        private void guna2TextBox2_TextChanged(object sender, EventArgs e) { }
+        private void guna2TextBox3_TextChanged(object sender, EventArgs e) { }
+        private void guna2TextBox4_TextChanged(object sender, EventArgs e) { }
+        private void guna2TextBox5_TextChanged(object sender, EventArgs e) { }
     }
 }

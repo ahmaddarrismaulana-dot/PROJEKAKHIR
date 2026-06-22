@@ -48,7 +48,7 @@ namespace PROJEKAKHIR
                 cmbKategori.ValueMember = "id_kategori";
                 cmbKategori.SelectedIndex = -1;
             }
-            catch (Exception ex)
+            catch (Exception ex)2
             {
                 MessageBox.Show("Gagal load kategori: " + ex.Message);
             }
@@ -246,7 +246,7 @@ namespace PROJEKAKHIR
         private void picBibit_Click(object sender, EventArgs e) { }
         private void txtIdBibit_TextChanged(object sender, EventArgs e) { }
 
-       
+
 
         private void dgvBibit_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
@@ -324,6 +324,11 @@ namespace PROJEKAKHIR
                     LoadDataBibit(); // refresh tabel
                 };
             }
+        }
+
+        private void cmbKategori_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

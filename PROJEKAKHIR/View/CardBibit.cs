@@ -38,8 +38,6 @@ namespace PROJEKAKHIR
             lblStok.Text = "Stok : " + bibit.stok;
             lblUmur.Text = bibit.umur_bibit;
 
-            // kalau belum ada label kategori, abaikan ini dulu
-            // lblKategori.Text = bibit.nama_kategori;
 
             if (bibit.foto_bibit != null)
             {

@@ -54,7 +54,6 @@ namespace PROJEKAKHIR
             lblUploadFormat = new Label();
             lblAlamat = new Label();
             txtAlamat = new RichTextBox();
-            flowLayoutPanel1 = new FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)dgvPesanan).BeginInit();
             pnlUpload.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picUploadIcon).BeginInit();
@@ -64,7 +63,7 @@ namespace PROJEKAKHIR
             // 
             lblInfoTitle.AutoSize = true;
             lblInfoTitle.Font = new Font("Arial Rounded MT Bold", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblInfoTitle.Location = new Point(14, 13);
+            lblInfoTitle.Location = new Point(23, 10);
             lblInfoTitle.Name = "lblInfoTitle";
             lblInfoTitle.Size = new Size(120, 27);
             lblInfoTitle.TabIndex = 0;
@@ -74,7 +73,7 @@ namespace PROJEKAKHIR
             // 
             lblRingkasan.AutoSize = true;
             lblRingkasan.Font = new Font("Arial Rounded MT Bold", 12F);
-            lblRingkasan.Location = new Point(495, 68);
+            lblRingkasan.Location = new Point(493, 52);
             lblRingkasan.Name = "lblRingkasan";
             lblRingkasan.Size = new Size(201, 23);
             lblRingkasan.TabIndex = 7;
@@ -108,7 +107,7 @@ namespace PROJEKAKHIR
             dgvPesanan.DefaultCellStyle = dataGridViewCellStyle4;
             dgvPesanan.EnableHeadersVisualStyles = false;
             dgvPesanan.GridColor = Color.FromArgb(220, 220, 220);
-            dgvPesanan.Location = new Point(495, 114);
+            dgvPesanan.Location = new Point(493, 98);
             dgvPesanan.Margin = new Padding(3, 4, 3, 4);
             dgvPesanan.Name = "dgvPesanan";
             dgvPesanan.ReadOnly = true;
@@ -152,7 +151,7 @@ namespace PROJEKAKHIR
             // lblSepTotal
             // 
             lblSepTotal.BackColor = Color.FromArgb(210, 210, 210);
-            lblSepTotal.Location = new Point(495, 528);
+            lblSepTotal.Location = new Point(493, 512);
             lblSepTotal.Name = "lblSepTotal";
             lblSepTotal.Size = new Size(560, 1);
             lblSepTotal.TabIndex = 9;
@@ -162,7 +161,7 @@ namespace PROJEKAKHIR
             lblTotalLabel.AutoSize = true;
             lblTotalLabel.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblTotalLabel.ForeColor = Color.FromArgb(30, 30, 30);
-            lblTotalLabel.Location = new Point(495, 548);
+            lblTotalLabel.Location = new Point(493, 532);
             lblTotalLabel.Name = "lblTotalLabel";
             lblTotalLabel.Size = new Size(49, 23);
             lblTotalLabel.TabIndex = 10;
@@ -173,7 +172,7 @@ namespace PROJEKAKHIR
             lblTotalVal.AutoSize = true;
             lblTotalVal.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
             lblTotalVal.ForeColor = Color.ForestGreen;
-            lblTotalVal.Location = new Point(924, 541);
+            lblTotalVal.Location = new Point(922, 525);
             lblTotalVal.Name = "lblTotalVal";
             lblTotalVal.Size = new Size(131, 30);
             lblTotalVal.TabIndex = 11;
@@ -186,7 +185,7 @@ namespace PROJEKAKHIR
             btnLanjut.FlatStyle = FlatStyle.Flat;
             btnLanjut.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnLanjut.ForeColor = Color.White;
-            btnLanjut.Location = new Point(865, 601);
+            btnLanjut.Location = new Point(863, 585);
             btnLanjut.Margin = new Padding(3, 4, 3, 4);
             btnLanjut.Name = "btnLanjut";
             btnLanjut.Size = new Size(190, 53);
@@ -200,7 +199,7 @@ namespace PROJEKAKHIR
             lblIDTransaksi.AutoSize = true;
             lblIDTransaksi.Font = new Font("Segoe UI", 9F);
             lblIDTransaksi.ForeColor = Color.Black;
-            lblIDTransaksi.Location = new Point(23, 119);
+            lblIDTransaksi.Location = new Point(23, 79);
             lblIDTransaksi.Name = "lblIDTransaksi";
             lblIDTransaksi.Size = new Size(87, 20);
             lblIDTransaksi.TabIndex = 14;
@@ -211,7 +210,7 @@ namespace PROJEKAKHIR
             lblTotalBayar.AutoSize = true;
             lblTotalBayar.Font = new Font("Segoe UI", 9F);
             lblTotalBayar.ForeColor = Color.Black;
-            lblTotalBayar.Location = new Point(23, 166);
+            lblTotalBayar.Location = new Point(23, 126);
             lblTotalBayar.Name = "lblTotalBayar";
             lblTotalBayar.Size = new Size(83, 20);
             lblTotalBayar.TabIndex = 16;
@@ -223,7 +222,7 @@ namespace PROJEKAKHIR
             txtTotalBayar.BorderStyle = BorderStyle.None;
             txtTotalBayar.Font = new Font("Segoe UI", 9F);
             txtTotalBayar.ForeColor = Color.FromArgb(30, 30, 30);
-            txtTotalBayar.Location = new Point(194, 163);
+            txtTotalBayar.Location = new Point(194, 123);
             txtTotalBayar.Margin = new Padding(3, 4, 3, 4);
             txtTotalBayar.Name = "txtTotalBayar";
             txtTotalBayar.ReadOnly = true;
@@ -237,7 +236,7 @@ namespace PROJEKAKHIR
             lblNama.AutoSize = true;
             lblNama.Font = new Font("Segoe UI", 9F);
             lblNama.ForeColor = Color.Black;
-            lblNama.Location = new Point(23, 213);
+            lblNama.Location = new Point(23, 173);
             lblNama.Name = "lblNama";
             lblNama.Size = new Size(49, 20);
             lblNama.TabIndex = 18;
@@ -249,7 +248,7 @@ namespace PROJEKAKHIR
             txtNama.BorderStyle = BorderStyle.None;
             txtNama.Font = new Font("Segoe UI", 9F);
             txtNama.ForeColor = Color.FromArgb(30, 30, 30);
-            txtNama.Location = new Point(194, 210);
+            txtNama.Location = new Point(194, 170);
             txtNama.Margin = new Padding(3, 4, 3, 4);
             txtNama.Name = "txtNama";
             txtNama.ReadOnly = true;
@@ -262,7 +261,7 @@ namespace PROJEKAKHIR
             lblMetodePembayaran.AutoSize = true;
             lblMetodePembayaran.Font = new Font("Segoe UI", 9F);
             lblMetodePembayaran.ForeColor = Color.Black;
-            lblMetodePembayaran.Location = new Point(23, 384);
+            lblMetodePembayaran.Location = new Point(23, 344);
             lblMetodePembayaran.Name = "lblMetodePembayaran";
             lblMetodePembayaran.Size = new Size(146, 20);
             lblMetodePembayaran.TabIndex = 20;
@@ -273,7 +272,7 @@ namespace PROJEKAKHIR
             cmbMetodePembayaran.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbMetodePembayaran.Font = new Font("Segoe UI", 9F);
             cmbMetodePembayaran.Items.AddRange(new object[] { "Transfer Bank", "COD", "E-Wallet" });
-            cmbMetodePembayaran.Location = new Point(194, 380);
+            cmbMetodePembayaran.Location = new Point(194, 340);
             cmbMetodePembayaran.Margin = new Padding(3, 4, 3, 4);
             cmbMetodePembayaran.Name = "cmbMetodePembayaran";
             cmbMetodePembayaran.Size = new Size(274, 28);
@@ -285,7 +284,7 @@ namespace PROJEKAKHIR
             lblBankTujuan.AutoSize = true;
             lblBankTujuan.Font = new Font("Segoe UI", 9F);
             lblBankTujuan.ForeColor = Color.Black;
-            lblBankTujuan.Location = new Point(23, 438);
+            lblBankTujuan.Location = new Point(23, 398);
             lblBankTujuan.Name = "lblBankTujuan";
             lblBankTujuan.Size = new Size(89, 20);
             lblBankTujuan.TabIndex = 22;
@@ -296,7 +295,7 @@ namespace PROJEKAKHIR
             cmbBankTujuan.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbBankTujuan.Font = new Font("Segoe UI", 9F);
             cmbBankTujuan.Items.AddRange(new object[] { "BCA - 12345 6789 (BibitKu)", "BNI - 98765 4321 (BibitKu)", "Mandiri - 11223 3445 (BibitKu)" });
-            cmbBankTujuan.Location = new Point(194, 434);
+            cmbBankTujuan.Location = new Point(194, 394);
             cmbBankTujuan.Margin = new Padding(3, 4, 3, 4);
             cmbBankTujuan.Name = "cmbBankTujuan";
             cmbBankTujuan.Size = new Size(274, 28);
@@ -308,7 +307,7 @@ namespace PROJEKAKHIR
             lblDetailPembayaran.AutoSize = true;
             lblDetailPembayaran.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblDetailPembayaran.ForeColor = Color.FromArgb(30, 30, 30);
-            lblDetailPembayaran.Location = new Point(23, 73);
+            lblDetailPembayaran.Location = new Point(23, 52);
             lblDetailPembayaran.Name = "lblDetailPembayaran";
             lblDetailPembayaran.Size = new Size(195, 23);
             lblDetailPembayaran.TabIndex = 13;
@@ -319,7 +318,7 @@ namespace PROJEKAKHIR
             lblInstruksi.AutoSize = true;
             lblInstruksi.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             lblInstruksi.ForeColor = Color.FromArgb(30, 30, 30);
-            lblInstruksi.Location = new Point(23, 489);
+            lblInstruksi.Location = new Point(23, 438);
             lblInstruksi.Name = "lblInstruksi";
             lblInstruksi.Size = new Size(204, 25);
             lblInstruksi.TabIndex = 24;
@@ -330,7 +329,7 @@ namespace PROJEKAKHIR
             lblStep1.AutoSize = true;
             lblStep1.Font = new Font("Segoe UI", 9F);
             lblStep1.ForeColor = Color.FromArgb(60, 60, 60);
-            lblStep1.Location = new Point(23, 529);
+            lblStep1.Location = new Point(23, 478);
             lblStep1.Name = "lblStep1";
             lblStep1.Size = new Size(306, 20);
             lblStep1.TabIndex = 25;
@@ -341,7 +340,7 @@ namespace PROJEKAKHIR
             lblStep2.AutoSize = true;
             lblStep2.Font = new Font("Segoe UI", 9F);
             lblStep2.ForeColor = Color.FromArgb(60, 60, 60);
-            lblStep2.Location = new Point(23, 555);
+            lblStep2.Location = new Point(23, 504);
             lblStep2.Name = "lblStep2";
             lblStep2.Size = new Size(200, 20);
             lblStep2.TabIndex = 26;
@@ -352,7 +351,7 @@ namespace PROJEKAKHIR
             lblStep3.AutoSize = true;
             lblStep3.Font = new Font("Segoe UI", 9F);
             lblStep3.ForeColor = Color.FromArgb(60, 60, 60);
-            lblStep3.Location = new Point(23, 582);
+            lblStep3.Location = new Point(23, 531);
             lblStep3.Name = "lblStep3";
             lblStep3.Size = new Size(270, 20);
             lblStep3.TabIndex = 27;
@@ -363,7 +362,7 @@ namespace PROJEKAKHIR
             lblUploadBukti.AutoSize = true;
             lblUploadBukti.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             lblUploadBukti.ForeColor = Color.FromArgb(30, 30, 30);
-            lblUploadBukti.Location = new Point(23, 622);
+            lblUploadBukti.Location = new Point(23, 571);
             lblUploadBukti.Name = "lblUploadBukti";
             lblUploadBukti.Size = new Size(244, 25);
             lblUploadBukti.TabIndex = 28;
@@ -377,7 +376,7 @@ namespace PROJEKAKHIR
             pnlUpload.Controls.Add(picUploadIcon);
             pnlUpload.Controls.Add(lblUploadFormat);
             pnlUpload.Cursor = Cursors.Hand;
-            pnlUpload.Location = new Point(23, 662);
+            pnlUpload.Location = new Point(23, 611);
             pnlUpload.Margin = new Padding(3, 4, 3, 4);
             pnlUpload.Name = "pnlUpload";
             pnlUpload.Size = new Size(424, 119);
@@ -428,7 +427,7 @@ namespace PROJEKAKHIR
             lblAlamat.AutoSize = true;
             lblAlamat.Font = new Font("Segoe UI", 9F);
             lblAlamat.ForeColor = Color.Black;
-            lblAlamat.Location = new Point(23, 252);
+            lblAlamat.Location = new Point(23, 212);
             lblAlamat.Name = "lblAlamat";
             lblAlamat.Size = new Size(57, 20);
             lblAlamat.TabIndex = 30;
@@ -439,7 +438,7 @@ namespace PROJEKAKHIR
             // 
             txtAlamat.BorderStyle = BorderStyle.FixedSingle;
             txtAlamat.Font = new Font("Segoe UI", 9F);
-            txtAlamat.Location = new Point(194, 250);
+            txtAlamat.Location = new Point(194, 210);
             txtAlamat.Margin = new Padding(3, 4, 3, 4);
             txtAlamat.Name = "txtAlamat";
             txtAlamat.ScrollBars = RichTextBoxScrollBars.None;
@@ -447,14 +446,6 @@ namespace PROJEKAKHIR
             txtAlamat.TabIndex = 31;
             txtAlamat.Text = "";
             txtAlamat.TextChanged += txtAlamat_TextChanged;
-            // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.AutoScroll = true;
-            flowLayoutPanel1.Location = new Point(14, 55);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(462, 735);
-            flowLayoutPanel1.TabIndex = 32;
             // 
             // Checkout
             // 
@@ -486,7 +477,6 @@ namespace PROJEKAKHIR
             Controls.Add(lblTotalLabel);
             Controls.Add(lblTotalVal);
             Controls.Add(btnLanjut);
-            Controls.Add(flowLayoutPanel1);
             Margin = new Padding(3, 4, 3, 4);
             Name = "Checkout";
             Size = new Size(1134, 856);
@@ -531,6 +521,5 @@ namespace PROJEKAKHIR
         private Label lblUploadFormat;
         private Label lblAlamat;
         private RichTextBox txtAlamat;
-        private FlowLayoutPanel flowLayoutPanel1;
     }
 }

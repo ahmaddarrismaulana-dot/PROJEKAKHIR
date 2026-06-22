@@ -90,5 +90,10 @@ namespace PROJEKAKHIR
         {
 
         }
+
+        private void cmbKategori_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

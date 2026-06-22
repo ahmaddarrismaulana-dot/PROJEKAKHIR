@@ -16,6 +16,7 @@
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             lblDataBibit = new Label();
             lblIdBibit = new Label();
             txtIdBibit = new TextBox();
@@ -45,9 +46,6 @@
             colStok = new DataGridViewTextBoxColumn();
             colAksi = new DataGridViewButtonColumn();
             colEdit = new DataGridViewButtonColumn();
-            colEdit.Name = "colEdit";
-            colEdit.HeaderText = "Edit";
-             // biru
             label1 = new Label();
             numHarga = new NumericUpDown();
             numStok = new NumericUpDown();
@@ -126,6 +124,7 @@
             cmbKategori.Name = "cmbKategori";
             cmbKategori.Size = new Size(171, 28);
             cmbKategori.TabIndex = 6;
+            cmbKategori.SelectedIndexChanged += cmbKategori_SelectedIndexChanged;
             // 
             // lblUmurBibit
             // 
@@ -366,15 +365,21 @@
             colAksi.ReadOnly = true;
             colAksi.Text = "Hapus";
             colAksi.UseColumnTextForButtonValue = true;
-            ///colAksi
+            // 
+            // colEdit
+            // 
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(25, 118, 210);
+            colEdit.DefaultCellStyle = dataGridViewCellStyle2;
+            colEdit.FillWeight = 60F;
+            colEdit.FlatStyle = FlatStyle.Flat;
+            colEdit.HeaderText = "Edit";
+            colEdit.MinimumWidth = 60;
+            colEdit.Name = "colEdit";
             colEdit.Text = "Edit";
             colEdit.UseColumnTextForButtonValue = true;
-            colEdit.FlatStyle = FlatStyle.Flat;
-            colEdit.FillWeight = 60F;
-            colEdit.MinimumWidth = 60;
-            colEdit.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            colEdit.DefaultCellStyle.BackColor = Color.White;
-            colEdit.DefaultCellStyle.ForeColor = Color.FromArgb(25, 118, 210);
+            colEdit.Width = 125;
             // 
             // label1
             // 

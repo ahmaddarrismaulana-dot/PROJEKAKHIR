@@ -10,7 +10,7 @@ namespace BibitKu.Controllers
 
     public class TransaksiMasukController
     {
-        // Ambil semua transaksi masuk untuk penjual berdasarkan id_toko
+        //mengambil semua transaksi masuk untuk penjual berdasarkan id_toko
         public List<TransaksiMasukModel> GetTransaksiMasuk(
      int idToko,
      DateTime? dari = null,
@@ -120,7 +120,7 @@ namespace BibitKu.Controllers
             return daftar;
         }
 
-        // Update status pesanan
+        //update status pesanan
         public bool UpdateStatusPesanan(int idTransaksi, string statusBaru)
         {
             try
@@ -148,7 +148,7 @@ namespace BibitKu.Controllers
             }
         }
 
-        // Update status pembayaran jadi Lunas
+        //update status pembayaran jadi Lunas
         public bool KonfirmasiPembayaran(int idTransaksi)
         {
             try
