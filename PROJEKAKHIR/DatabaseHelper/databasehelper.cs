@@ -7,9 +7,9 @@ namespace BibitKu.Helpers
         private static readonly string connectionString =
             "Host=localhost;" +
             "Port=5432;" +
-            "Database=projekakhir;" +
+            "Database=projekakhirpbo;" +
             "Username=postgres;" +
-            "Password=kebab123;";
+            "Password=rakha123;";
 
         public static NpgsqlConnection GetConnection()
         {

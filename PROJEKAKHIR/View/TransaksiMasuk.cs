@@ -1,5 +1,6 @@
 ﻿using BibitKu.Controllers;
 using BibitKu.Helpers;
+using PROJEKAKHIR.Models;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -62,7 +63,7 @@ namespace PROJEKAKHIR
             }
         }
 
-        private void TampilkanData(List<TransaksiMasukModel> data)
+        private void TampilkanData(List<  TransaksiMasukModel> data)
         {
             dgvTransaksi.Rows.Clear();
 
